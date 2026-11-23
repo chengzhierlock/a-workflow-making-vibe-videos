@@ -244,22 +244,27 @@ function tpl(s){
   return '<div class="slide"><div class="eyebrow">'+(s.eyebrow||'')+'</div><div class="big">'+fmt(s.title)+'</div><div class="items">'+items+'</div></div>';
 }
 function clearCaps(){capTimers.forEach(clearTimeout);capTimers=[];capBox.innerHTML='';}
-/* 把一句话切成错落的大字块：先按标点切，再对长块二次切分 */
+/* 把一句话切成错落的大字块：先按标点切，再对长块二次切分。
+   关键：连续英文/数字/型号（Lean、AI、GPT-4、H800 等）视为不可分割 token，
+   只在 token 边界切块，避免同一个词被切断后前后两块颜色/字号不一致。 */
 function splitKin(text){
   const byPunc=String(text).split(/[，。！？、；：,.!?;:—～\s]+/).map(s=>s.trim()).filter(s=>s.length>0);
   const out=[];
   byPunc.forEach(seg=>{
-    // 长句按 4-6 字切成短块，保证错落节奏
-    if(seg.length>7){
-      let cur='';
-      for(const ch of seg){
-        cur+=ch;
-        if(cur.length>=5){out.push(cur);cur='';}
-      }
-      if(cur)out.push(cur);
-    } else if(seg.length){
-      out.push(seg);
+    if(seg.length<=7){
+      if(seg.length) out.push(seg);
+      return;
     }
+    // 字母数字串（含连字符/小数点的型号）整体为一个 token，中文每字一个 token
+    const toks = seg.match(/[A-Za-z0-9]+(?:[-.][A-Za-z0-9]+)*|[^A-Za-z0-9]/g) || [];
+    let cur='';
+    toks.forEach(tk=>{
+      if(!cur){ cur=tk; return; }
+      // 已达目标长度(>=5)就从 token 边界切开；否则仅当超过上限 7 才切
+      if(cur.length>=5 || cur.length+tk.length>7){ out.push(cur); cur=tk; }
+      else cur+=tk;
+    });
+    if(cur) out.push(cur);
   });
   return out;
 }
