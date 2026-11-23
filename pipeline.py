@@ -14,7 +14,7 @@ pipeline.py — 文章 → 口播视频 全链路流水线
   5. 人声时间轴拼接 + 氛围垫乐混流  (compose_audio)
   6. mux 成最终 MP4
 
-所有缓存/临时文件都在 D 盘，不碰已满的 C 盘。
+所有缓存/临时文件落在工作根目录下，可用环境变量覆盖。
 """
 import json
 import os
@@ -23,15 +23,17 @@ import sys
 import shutil
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-D = r"D:\自媒体"
-FFMPEG = r"C:\Users\21734\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe"
-NODE_MODULES = os.path.join(D, "_tools", "node_modules")
-TMPDIR = os.path.join(D, "_tmp")
+# 工作根目录默认取脚本所在目录的上一级（本仓库布局：仓库/工作区/_workflow）
+# 可用环境变量 WORK_ROOT 覆盖；不写死任何盘符或用户名。
+D = os.environ.get("WORK_ROOT") or os.path.dirname(BASE)
+NODE_MODULES = os.environ.get("NODE_MODULES") or os.path.join(D, "_tools", "node_modules")
+TMPDIR = os.environ.get("WORK_TMP") or os.path.join(D, "_tmp")
 
 sys.path.insert(0, BASE)
 import lib_tts
 import lib_html
 import compose_audio
+from lib_ffmpeg import FFMPEG
 
 
 def run(cmd, env=None, **kw):

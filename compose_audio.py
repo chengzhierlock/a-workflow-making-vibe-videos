@@ -14,7 +14,8 @@ import math
 
 import numpy as np
 
-FFMPEG = r"C:\Users\21734\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe"
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib_ffmpeg import FFMPEG
 SR = 44100
 
 

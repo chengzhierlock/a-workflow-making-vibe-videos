@@ -1,5 +1,5 @@
 {
-  "account": "内容便利店",
+  "account": "我的频道",
   "title": "手绘风格样片",
   "tag": "逐帧手绘 · 样片",
   "style": "sketch",
@@ -62,7 +62,7 @@
       "type": "end",
       "eyebrow": "03 / 小结",
       "title": "复杂的事，<br>值得<>慢慢画</>",
-      "sub": "内容便利店 · 把知识画给你看",
+      "sub": "我的频道 · 把知识画给你看",
       "theme": "amber",
       "visual": {"name": "sketchChart", "opts": {"values": [0.4, 0.62, 0.55, 0.8, 0.7]}},
       "narration": [

@@ -1,4 +1,4 @@
-# 内容便利店 · 口播视频工作流
+# 口播视频工作流
 
 文章 → 口播稿 → 逐句配音 → 动态 HTML（逐句字幕）→ 抓帧 → 人声+音乐混流 → 成品 MP4。
 一条命令出片，画面和字幕跟着语音时长精确同步。
@@ -36,12 +36,12 @@ a-workflow-making-vibe-videos/
 
 ### 常规出片
 ```bash
-python "D:\自媒体\_workflow\pipeline.py" "D:\自媒体\_workflow\content\文章名.json" "输出名"
+python pipeline.py content/文章名.json "输出名"
 ```
 
 ### 复用已有配音（改了画面、不想重新配音）
 ```bash
-python "D:\自媒体\_workflow\pipeline.py" "D:\自媒体\_workflow\content\文章名.json" "输出名" --resume
+python pipeline.py content/文章名.json "输出名" --resume
 ```
 > `--resume` 会读取工作目录里的 `timeline.json`，跳过最耗时的配音步骤。
 
@@ -58,7 +58,7 @@ python "...\pipeline.py" "...\文章名.json" "输出名" --workers 8
 
 ### 指定自己的音乐
 ```bash
-python "D:\自媒体\_workflow\pipeline.py" "...\文章名.json" "输出名" --music "D:\自媒体\music.mp3"
+python pipeline.py "...\文章名.json" "输出名" --music "music.mp3"
 ```
 
 > 注意：PowerShell 里直接运行即可，**不要**在命令后加 `2>&1 | Select-Object` 之类的管道——
@@ -68,7 +68,7 @@ python "D:\自媒体\_workflow\pipeline.py" "...\文章名.json" "输出名" --m
 
 ```json
 {
-  "account": "内容便利店",
+  "account": "我的频道",
   "title": "本期标题",
   "tag": "热点速览",
   "voice": "zh-CN-YunxiNeural",
@@ -200,11 +200,13 @@ styles\
 2. **自己的音乐**：`--music` 传 mp3/wav，适合已有心仪 BGM。
 3. **AI 生成音乐**：先生成好音频文件，再走 `--music` 接入（需自己提供 API Key）。
 
-## 环境依赖与坑
+## 环境依赖与注意事项
 
-- Python：`C:\Program Files\Python311\python.exe`（edge-tts 7.3.1 装在这个环境）
-- ffmpeg / ffprobe：`C:\Users\21734\AppData\Local\Microsoft\WinGet\Links\`
-- Playwright：装在 `D:\自媒体\_tools`，用系统 Chrome，抓帧走 CDP（不依赖 playwright 自带 ffmpeg）
-- **C 盘已满**：所有缓存、临时文件都导向 `D:\自媒体\_tmp`，脚本内已固化
-- **批量删帧**：`_work\<输出名>\_frames` 有近 3000 张 jpg，一次性删会触发系统批量删除保护，需分批
-- **抓帧每帧必须 ACK**：`capture.js` 里 `Page.screencastFrameAck` 不能节流，否则帧流会断
+- **Python 3.10+**：安装 `requirements.txt`（edge-tts 7.3.1）。
+- **ffmpeg / ffprobe**：需在 `PATH` 中；或设环境变量 `FFMPEG_BIN` / `FFPROBE_BIN` 指定可执行文件。
+  脚本会自动按顺序探测：环境变量 → PATH → WinGet 安装目录 → Program Files。
+- **Node.js + playwright-core**：用系统已安装的 Chrome 抓帧，走 CDP（不依赖 playwright 自带 ffmpeg）。
+- **工作目录**：默认脚本上一级为工作根，中间产物落在 `_work/`、成品在 `output/`。
+  可用环境变量 `WORK_ROOT` 改工作根、`WORK_TMP` 改临时目录、`NODE_MODULES` 改依赖路径。
+- **电源/存储**：一期视频约 3000 张中间帧图，请预留磁盘空间；批量清理时注意系统删除保护。
+- **抓帧每帧必须 ACK**：`capture.js` 里 `Page.screencastFrameAck` 不能节流，否则帧流会断。

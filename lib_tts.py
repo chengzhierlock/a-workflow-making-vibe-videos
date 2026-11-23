@@ -18,8 +18,8 @@ import json
 
 import edge_tts
 
-FFMPEG = r"C:\Users\21734\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe"
-FFPROBE = FFMPEG.replace("ffmpeg.exe", "ffprobe.exe")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib_ffmpeg import FFMPEG, FFPROBE
 _SENT_SPLIT = re.compile(r"(?<=[。！？!?；;])")
 
 

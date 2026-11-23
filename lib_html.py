@@ -210,7 +210,7 @@ const THEMES = {
   rose:   {c:'#ff5fa2', p:'#c864ff', b:'#ff8cc4', bg0:'#280a1c', bg1:'#481436'},
   steel:  {c:'#7dd3fc', p:'#a5b4fc', b:'#60a5fa', bg0:'#0a1622', bg1:'#1a2c44'}
 };
-const account = DATA.account || '内容便利店';
+const account = DATA.account || '我的频道';
 const tagText = DATA.tag || '自动放映';
 const box=document.getElementById('slides'),bar=document.getElementById('bar'),cnt=document.getElementById('cnt'),capBox=document.getElementById('caption'),vfxBox=document.getElementById('vfx'),photoBox=document.getElementById('photo'),scr=document.querySelector('.screen');
 let idx=0,timer=null,capTimers=[],paused=false,remain=0,startAt=0,cleanupVfx=null,vfxStartAt=0;
@@ -401,7 +401,7 @@ def render_html(content: dict, slides: list, total_ms: int) -> str:
             d["image"] = _img_uri(d["image"])
         out_slides.append(d)
     data = {
-        "account": content.get("account", "内容便利店"),
+        "account": content.get("account", "我的频道"),
         "tag": content.get("tag", "自动放映"),
         "slides": out_slides,
     }
@@ -415,7 +415,7 @@ def render_html(content: dict, slides: list, total_ms: int) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{content.get('title','内容便利店')}</title>
+<title>{content.get('title','口播视频')}</title>
 <style>{CSS}
 {style_css}</style>
 </head>
@@ -423,11 +423,11 @@ def render_html(content: dict, slides: list, total_ms: int) -> str:
 <div class="stage"><div class="screen">
   <div class="photo" id="photo"></div>
   <div class="glow g1"></div><div class="glow g2"></div>
-  <div class="hd"><div class="logo"></div><div class="name">内容便利店</div><div class="tag">自动放映</div></div>
+  <div class="hd"><div class="logo"></div><div class="name">我的频道</div><div class="tag">自动放映</div></div>
   <div class="vfx" id="vfx"></div>
   <div id="slides"></div>
   <div class="caption" id="caption"></div>
-  <div class="ft"><div class="bar"><i id="bar"></i></div><div class="meta"><span id="cnt">01 / 0{len(slides)}</span><span>{content.get('account','内容便利店')} · 每天一页</span></div></div>
+  <div class="ft"><div class="bar"><i id="bar"></i></div><div class="meta"><span id="cnt">01 / 0{len(slides)}</span><span>{content.get('account','我的频道')} · 每天一页</span></div></div>
   <div class="hint" id="hint">空格 暂停/继续 · R 重播 · F11 全屏录制</div>
 </div></div>
 <script>{visual_js}</script>
