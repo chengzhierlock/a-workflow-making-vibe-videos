@@ -1,0 +1,19 @@
+{
+  "id": "flat",
+  "name": "扁平矢量",
+  "en": "flat vector",
+  "desc": "明亮扁平插画风：纯色块、深墨粗描边、硬边偏移阴影、基础几何形状、撞色撞得响。没有渐变没有立体阴影，杂志插画感，适合概念拆解、对比、轻快科普。",
+  "bg": "#fffdf8",
+  "ink": "#1d2433",
+  "accent": "#ff6b6b",
+  "font": "圆润无衬线粗体",
+  "themes": ["sunset", "mint", "candy", "sky"],
+  "visuals": [
+    {"name": "flatShapes", "desc": "漂浮几何形状（圆/方/三角/胶囊）缓慢浮动，做底纹或主视觉", "opts": {"count": 9}},
+    {"name": "flatBars", "desc": "扁平圆角柱图，纯色块按数值生长（数据）", "opts": {"values": [0.55,0.82,0.64,0.95,0.72,0.88]}},
+    {"name": "flatNodes", "desc": "扁平节点网络：大圆点+粗连线+流动圆点（流程/关系）", "opts": {"nodes": 5}},
+    {"name": "flatBlob", "desc": "有机波浪色块，贝塞尔曲线缓慢变形（背景/情绪）", "opts": {}},
+    {"name": "flatIcons", "desc": "基础几何图标阵列逐个弹出（构成/拆解）", "opts": {"count": 9, "cols": 3}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"flat\"；每页 visual.name 用上表组件；theme 优先 sunset/mint/candy/sky；浅底配深墨大字，字幕高亮块为撞色实心标签。"
+}

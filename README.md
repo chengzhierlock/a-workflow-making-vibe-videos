@@ -163,7 +163,8 @@ python pipeline.py "...\文章名.json" "输出名" --music "music.mp3"
 styles\
   sketch\            ← 逐帧手绘（已实现）
   iso\               ← 等轴2.5D（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴皮肤、字体、卡片、立体字幕
+  flat\              ← 扁平矢量（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -181,8 +182,11 @@ styles\
 - `iso` 等轴2.5D：菱形网格地面 + 三面立方体（顶/左/右）+ 落地阴影 + 立体厚度大字。组件：
   `isoGrid`（流动网格）、`isoBlocks`（方块群升起）、`isoChart`（等轴柱图）、
   `isoFlow`（节点+流动光点）、`isoTower`（数据塔堆叠）。样片：`output\等轴2.5D样片.mp4`。
+- `flat` 扁平矢量：浅底 + 纯色块 + 深墨粗描边 + 硬边偏移阴影 + 撞色，杂志插画感。组件：
+  `flatShapes`（漂浮几何）、`flatBars`（撞色圆角柱图）、`flatNodes`（节点+粗连线）、
+  `flatBlob`（有机波浪色块）、`flatIcons`（几何图标阵列弹出）。样片：`output\扁平矢量样片.mp4`。
 
-**待做风格清单**（按用户规划）：扁平矢量、线条动画、3D渲染、形变动画、
+**待做风格清单**（按用户规划）：线条动画、3D渲染、形变动画、
 贴纸风科普、赛博朋克HUD、拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
 复古synthwave、像素风、液态流动、综艺花字。
 

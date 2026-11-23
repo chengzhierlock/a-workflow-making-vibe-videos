@@ -1,0 +1,165 @@
+/* ============================================================
+ * 风格皮肤：扁平矢量 (flat)
+ * 覆盖默认暗色科技皮肤，改成明亮扁平插画风。
+ * 关键词：浅底、纯色块、深墨粗描边、硬边偏移阴影、基础几何、撞色。
+ * 与 iso 立体风格刻意拉开：没有渐变、没有立体三面、没有柔光模糊。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif !important;
+}
+.stage{
+  background:#f4f1ea !important;
+  background-image:radial-gradient(circle at 22% 18%, #fff8e8 0%, transparent 42%),
+                   radial-gradient(circle at 80% 78%, #e8f3ff 0%, transparent 46%) !important;
+}
+/* 浅底波点网格，替代暗色方格 */
+.screen{
+  background:#fffdf8 !important;
+  color:#1d2433 !important;
+  border:6px solid #1d2433 !important;
+  border-radius:26px !important;
+  box-shadow:14px 16px 0 rgba(29,36,51,.16) !important;
+}
+.screen::before{
+  background-image:radial-gradient(rgba(29,36,51,.11) 2px, transparent 2px) !important;
+  background-size:38px 38px !important;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 88%) !important;
+  mask-image:linear-gradient(180deg,#000,transparent 88%) !important;
+}
+.glow{opacity:0 !important}
+.dot{border-radius:50% !important;transform:none !important;border:3px solid #1d2433 !important}
+
+/* 品牌栏：扁平圆角徽标 */
+.logo{
+  border-radius:12px !important;border-width:4px !important;
+  background:#ff6b6b !important;border-color:#1d2433 !important;
+}
+.logo::after{border-radius:50% !important;transform:none !important;background:#fff !important}
+.hd .name{letter-spacing:3px;color:#1d2433 !important;font-weight:900 !important}
+.hd .tag{
+  border-radius:999px !important;
+  border:3px solid #1d2433 !important;
+  background:#ffd166 !important;
+  color:#1d2433 !important;font-weight:800 !important;
+  box-shadow:3px 3px 0 #1d2433 !important;
+}
+
+/* 页眉：扁平色签 */
+.eyebrow{
+  color:#1d2433 !important;
+  background:#06d6a0 !important;
+  border:3px solid #1d2433 !important;
+  border-radius:10px !important;
+  padding:6px 16px !important;
+  box-shadow:4px 4px 0 #1d2433 !important;
+  text-shadow:none !important;
+  letter-spacing:3px;font-weight:800 !important;
+}
+
+/* 大标题：深墨粗体，撞色描边感 */
+.big{
+  color:#1d2433 !important;
+  letter-spacing:1px !important;
+  text-shadow:3px 3px 0 #ffd166, 6px 6px 0 rgba(29,36,51,.10) !important;
+  font-weight:900 !important;
+}
+.big em{
+  background:#ff6b6b !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  color:#fff !important;
+  padding:0 14px !important;border-radius:12px !important;
+  border:3px solid #1d2433 !important;
+  text-shadow:none !important;
+}
+.sub{color:#4a5568 !important;text-shadow:none !important;font-weight:600 !important}
+
+/* 内容卡片：扁平 2.0——白底 + 深墨粗描边 + 硬边偏移阴影 */
+.item,.stat{
+  background:#fff !important;
+  border:4px solid #1d2433 !important;
+  border-radius:18px !important;
+  box-shadow:8px 9px 0 rgba(29,36,51,.18) !important;
+  transform:none;
+}
+.item .n{color:#ff6b6b !important;text-shadow:none;font-weight:900 !important}
+.item h3{color:#1d2433 !important;font-weight:900 !important}
+.item p{color:#4a5568 !important}
+.stat .num{
+  background:#4d96ff !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  color:#fff !important;
+  border:3px solid #1d2433 !important;border-radius:12px !important;
+  text-shadow:none !important;
+}
+.stat .lbl{color:#4a5568 !important}
+
+/* 时间线：扁平节点 */
+.tl::before{background:#1d2433 !important;width:4px !important}
+.tl-item::before{
+  background:#ffd166 !important;border:4px solid #1d2433 !important;
+  border-radius:50% !important;transform:none !important;
+  box-shadow:3px 3px 0 rgba(29,36,51,.25) !important;
+}
+.tl-date{color:#ff6b6b !important;font-weight:800 !important}
+.tl-text{color:#1d2433 !important}
+
+/* ===== 扁平矢量大字字幕：深墨字 + 撞色实心高亮块 ===== */
+.caption{top:29%;bottom:13%;gap:16px 26px !important}
+.kin{
+  font-size:104px !important;
+  color:#1d2433 !important;
+  text-shadow:3px 3px 0 rgba(29,36,51,.12) !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+}
+/* 错落字号（覆盖 inline），保留大小对比 */
+.kin:nth-child(2){font-size:66px !important}
+.kin:nth-child(3){font-size:94px !important}
+.kin:nth-child(4){font-size:60px !important}
+.kin:nth-child(5){font-size:110px !important}
+.kin:nth-child(6){font-size:70px !important}
+.kin:nth-child(7){font-size:86px !important}
+.kin.sm{font-size:56px !important;opacity:.78 !important;color:#4d96ff !important}
+/* 块数多时整体收紧字号，避免长句挤成一团（caption 内 kin 超过 5 块） */
+.caption:has(.kin:nth-child(6)) .kin{font-size:76px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:56px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:48px !important}
+/* 弹出动画：贴纸「啪」地弹入 */
+.kin.on{animation:kinFlat .42s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes kinFlat{
+  0%{opacity:0;transform:scale(.6) rotate(-4deg)}
+  70%{opacity:1;transform:scale(1.06) rotate(1deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+/* 高亮块：撞色实心标签 + 深墨描边（浅底上用白字，不用渐变文字） */
+.kin.hl{
+  background:#ff6b6b !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  color:#fff !important;
+  padding:2px 20px !important;
+  border-radius:16px !important;
+  border:4px solid #1d2433 !important;
+  box-shadow:6px 7px 0 rgba(29,36,51,.22) !important;
+  text-shadow:none !important;
+}
+
+/* 关注按钮：扁平实心胶囊 */
+.follow{
+  color:#1d2433 !important;
+  background:#06d6a0 !important;
+  border:4px solid #1d2433 !important;
+  border-radius:999px !important;
+  box-shadow:5px 6px 0 #1d2433 !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+
+/* 进度条：扁平实心 */
+.bar{background:rgba(29,36,51,.14) !important;border-radius:999px !important;height:8px !important}
+.bar i{background:#ff6b6b !important;border-radius:999px !important;box-shadow:none !important;border:2px solid #1d2433}
+.meta{color:#4a5568 !important;font-weight:700 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}
