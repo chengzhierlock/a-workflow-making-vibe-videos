@@ -16,7 +16,8 @@ a-workflow-making-vibe-videos/
 ├── pipeline.py            # 主入口，串起全部 6 步
 ├── lib_tts.py             # ① 逐句配音 + 精确测时
 ├── lib_html.py            # ② 内容 + 时间轴 → 动态 HTML（逐句字幕 + 动画/风格注入）
-├── capture.js             # ③ Chrome CDP 抓帧 → 30fps 帧序列（Node）
+├── capture_seek.js        # ③ 帧级步进抓帧（默认）：__seek(t) 确定性还原 + 多浏览器并行（Node）
+├── capture.js             # ③ 实时播放抓帧（旧版，--capture realtime 时回退）
 ├── compose_audio.py       # ⑤ 人声时间轴拼接 + 氛围垫乐 + 混流
 ├── visuals.js             # 默认动画组件库（星球/粒子/矩阵雨/网络/涟漪/柱状图/雷达）
 │
@@ -43,6 +44,17 @@ python "D:\自媒体\_workflow\pipeline.py" "D:\自媒体\_workflow\content\文�
 python "D:\自媒体\_workflow\pipeline.py" "D:\自媒体\_workflow\content\文章名.json" "输出名" --resume
 ```
 > `--resume` 会读取工作目录里的 `timeline.json`，跳过最耗时的配音步骤。
+
+### 抓帧模式（默认帧级步进，快）
+默认用 `capture_seek.js`：页面注入确定性渲染模式（URL 带 `?render=1`），逐帧 `__seek(t)` 把
+页面还原到该时刻后直接截图，**不等真实时间流逝**，并用多浏览器并行。实测 2 分半的视频
+从实时抓帧约 150 秒降到约 90 秒，且不会因中断卡在半途。可调并行数：
+```bash
+python "...\pipeline.py" "...\文章名.json" "输出名" --workers 8
+```
+如需回退到旧的实时播放抓帧（兼容性兜底）：`--capture realtime`。
+> 帧级模式的确定性逻辑在 `lib_html.py` 的 `RENDER_JS` 常量；普通放映页面无 `render=1` 参数时
+> 这段是死代码，放映/预览行为零变化。canvas 装饰动画的相位允许差几帧，肉眼无感。
 
 ### 指定自己的音乐
 ```bash

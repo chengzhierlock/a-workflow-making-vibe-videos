@@ -21,6 +21,7 @@ desktop.ini
 .vscode/
 *.swp
 *.bak
+*.bak_*
 *.tmp
 
 # ===== Node =====

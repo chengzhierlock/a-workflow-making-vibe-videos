@@ -57,12 +57,18 @@ def main():
     out_name = None
     music_src = None
     resume = False
+    capture_mode = "seek"          # 默认帧级步进（快）；--capture realtime 回退到实时播放抓帧
+    capture_workers = 6
     args = sys.argv[2:]
     for i, a in enumerate(args):
         if a == "--music" and i + 1 < len(args):
             music_src = args[i + 1]
         elif a == "--resume":
             resume = True
+        elif a == "--capture" and i + 1 < len(args):
+            capture_mode = args[i + 1]
+        elif a == "--workers" and i + 1 < len(args):
+            capture_workers = int(args[i + 1])
         elif not a.startswith("--") and out_name is None:
             out_name = a
 
@@ -102,7 +108,14 @@ def main():
 
     print("\n=== 3/6 Chrome 抓帧 ===")
     frame_dir = os.path.join(work, "_frames")
-    r = run(["node", os.path.join(BASE, "capture.js"), html_path, frame_dir, str(total_ms)])
+    if capture_mode == "seek":
+        # 帧级步进：页面 __seek(t) 确定性还原 + 多浏览器并行，无需等真实时间
+        print(f"  帧级步进模式（{capture_workers} 浏览器并行）")
+        r = run(["node", os.path.join(BASE, "capture_seek.js"), html_path, frame_dir,
+                 str(total_ms), "--workers", str(capture_workers)])
+    else:
+        print("  实时播放模式（兼容旧版）")
+        r = run(["node", os.path.join(BASE, "capture.js"), html_path, frame_dir, str(total_ms)])
     for line in r.stdout.strip().splitlines():
         print("  " + line)
 

@@ -84,8 +84,123 @@ html,body{height:100%;background:#05070f;overflow:hidden;font-family:"Microsoft 
 .vfx canvas{width:100%;height:100%;display:block}
 """
 
+# 确定性渲染模式基础设施：仅在 URL 带 ?render=1 时激活，供帧级抓帧器调用 window.__seek(tMs)。
+# 普通放映页面无此参数，所有 hook 保持原生行为，零影响。
+RENDER_JS = r"""
+(function(){
+  var q = (typeof URLSearchParams!=='undefined') ? new URLSearchParams(location.search) : {get:function(){return null;}};
+  if (q.get('render') !== '1') { window.__RENDER = false; return; }
+  window.__RENDER = true;
+
+  var nativeRAF = window.requestAnimationFrame.bind(window);
+  var virtualNow = 0;
+  var rafQueue = [];
+  var curIdx = -1;
+  var curSentStart = 0;
+  var STEP = 1000/30;
+  var TOTAL_MS = DATA.slides.reduce(function(a,s){ return a + (s.duration||3000); }, 0);
+
+  Date.now = function(){ return virtualNow; };
+  window.setTimeout = function(){ return -1; };
+  window.clearTimeout = function(){};
+  window.requestAnimationFrame = function(cb){ rafQueue.push(cb); return rafQueue.length; };
+  window.cancelAnimationFrame = function(){};
+
+  function flush(){ return new Promise(function(r){ nativeRAF(function(){ nativeRAF(r); }); }); }
+  function locate(t){
+    var acc=0;
+    for (var i=0;i<DATA.slides.length;i++){
+      var d=DATA.slides[i].duration||3000;
+      if (t < acc+d || i===DATA.slides.length-1) return {i:i, local:t-acc};
+      acc+=d;
+    }
+    return {i:DATA.slides.length-1, local:0};
+  }
+  function tickOnce(){
+    var b=rafQueue; rafQueue=[];
+    for (var i=0;i<b.length;i++){ try{ b[i](virtualNow); }catch(e){} }
+  }
+  function switchTo(i, atMs){
+    curIdx=i;
+    var s=DATA.slides[i];
+    applyTheme(s.theme);
+    applyPhoto(s.image);
+    box.innerHTML=tpl(s);
+    if (box.firstChild) box.firstChild.classList.add('on');
+    cnt.textContent=String(i+1).padStart(2,'0')+' / '+String(DATA.slides.length).padStart(2,'0');
+    startVfx(s);
+  }
+  function renderState(t){
+    var loc=locate(t), s=DATA.slides[loc.i], localMs=Math.max(0,loc.local);
+    var list=s.sentences||[], cur=null, curStart=0;
+    for (var i=0;i<list.length;i++){
+      var st=(list[i].start||0)*1000;
+      if (localMs>=st){ cur=list[i]; curStart=st; } else break;
+    }
+    curSentStart=curStart;
+    if (!cur){ capBox.innerHTML=''; }
+    else {
+      var chunks=splitKin(cur.text);
+      if (chunks.length>7) chunks=chunks.slice(0,6).concat([chunks.slice(6).join('')]);
+      var hi=-1, longest=0;
+      chunks.forEach(function(c,k){ if(/[0-9A-Za-z]/.test(c)&&hi<0)hi=k; if(c.length>chunks[longest].length)longest=k; });
+      if(hi<0)hi=longest;
+      var sizes=[86,52,78,54,84,50,72];
+      capBox.innerHTML=chunks.map(function(c,k){
+        var sz=sizes[k%sizes.length];
+        var cls='kin'+(k===hi?' hl':'')+(sz<=56?' sm':'')+' on';
+        return '<span class="'+cls+'" style="font-size:'+sz+'px;animation-delay:'+(k*0.10).toFixed(2)+'s">'+c+'</span>';
+      }).join('');
+    }
+    bar.style.animation='none';
+    bar.style.width=(Math.min(1,localMs/(s.duration||3000))*100).toFixed(2)+'%';
+    void capBox.offsetWidth;
+    if (document.getAnimations){
+      document.getAnimations().forEach(function(a){
+        try{
+          a.pause();
+          var el=a.effect&&a.effect.target;
+          var ct=localMs;
+          if (el&&el.classList&&el.classList.contains('kin')) ct=Math.max(0,localMs-curSentStart);
+          a.currentTime=ct;
+        }catch(e){}
+      });
+    }
+  }
+  window.__seek=function(tMs, fast){
+    tMs=Math.max(0,Math.min(tMs,TOTAL_MS));
+    // fast 模式（抓帧专用）：每帧直接把虚拟时钟设到目标，只切必要时切页 + tick 一次。
+    // canvas 是装饰性背景，相位差几帧肉眼无感；换来每帧 O(1) 而非 O(帧间隔)。
+    // 非 fast（人工拖动预览）保留逐帧累加，动画连续。
+    if (fast || tMs - virtualNow > 1500){
+      virtualNow=tMs;
+      var loc0=locate(tMs);
+      if (loc0.i!==curIdx) switchTo(loc0.i, tMs);
+      tickOnce();
+    } else {
+      var guard=0;
+      while (virtualNow < tMs-0.5 && guard++ < 200000){
+        virtualNow=Math.min(tMs, virtualNow+STEP);
+        var loc=locate(virtualNow);
+        if (loc.i!==curIdx) switchTo(loc.i, virtualNow);
+        tickOnce();
+      }
+    }
+    renderState(tMs);
+    return flush();
+  };
+  window.__ready=false;
+  window.addEventListener('load', function(){
+    switchTo(0,0);
+    window.__ready=true;
+  });
+})();
+"""
+
 JS = r"""
 const DATA = __DATA__;
+/* ===== 确定性渲染模式（?render=1）：仅供帧级抓帧使用；普通播放 URL 无此参数时所有 hook 走原路径，零影响 ===== */
+__RENDER_JS__
 const THEMES = {
   ice:    {c:'#00d4ff', p:'#4d7cff', b:'#5a8cff', bg0:'#061422', bg1:'#0c2540'},
   sunset: {c:'#ff8a4c', p:'#ffb84d', b:'#ff6b6b', bg0:'#2a1008', bg1:'#4a2010'},
@@ -286,7 +401,7 @@ def render_html(content: dict, slides: list, total_ms: int) -> str:
         "slides": out_slides,
     }
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    js = JS.replace("__DATA__", payload)
+    js = JS.replace("__DATA__", payload).replace("__RENDER_JS__", RENDER_JS)
     visual_js = _load_visuals()
     # 风格分支：追加皮肤 CSS（覆盖默认）+ 风格专属动画组件（追加注册）
     style_css, style_visuals = _load_style(content.get("style", ""))
