@@ -1,0 +1,154 @@
+/* ============================================================
+ * 风格皮肤：等轴 2.5D (iso)
+ * 覆盖默认暗色科技皮肤，改成干净的等轴立体科技风。
+ * 关键词：菱形网格、明亮棱面、硬朗描边、立体厚度、悬浮阴影。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif !important;
+}
+.stage{
+  background:#0a1020 !important;
+  background-image:radial-gradient(circle at 50% 38%, #16264a 0%, #0a1020 68%, #05080f 100%) !important;
+}
+.screen{
+  background:linear-gradient(160deg,#101d3c 0%,#0a1130 55%,#070a1a 100%) !important;
+  color:#eaf4ff !important;
+  box-shadow:inset 0 0 0 1px rgba(120,180,255,.14) !important;
+}
+/* 默认方格网底纹换成更细的等轴感网格（CSS 只能近似菱形，主视觉由 canvas 画） */
+.screen::before{
+  background-image:
+    linear-gradient(30deg, rgba(90,180,255,.05) 1px, transparent 1px),
+    linear-gradient(150deg, rgba(90,180,255,.05) 1px, transparent 1px) !important;
+  background-size:56px 32px !important;
+  -webkit-mask-image:radial-gradient(circle at 50% 60%,#000,transparent 78%) !important;
+  mask-image:radial-gradient(circle at 50% 60%,#000,transparent 78%) !important;
+}
+
+/* 辉光改成冷蓝/青的干净光晕 */
+.glow{opacity:.32 !important}
+.g1{background:#2f7cff !important}
+.g2{background:#00e0d0 !important}
+.dot{border-radius:1px !important;transform:rotate(45deg)}
+
+/* 品牌栏：等轴描边徽标 */
+.logo{border-radius:8px !important;transform:rotate(45deg);border-width:2px !important}
+.logo::after{border-radius:4px !important;transform:rotate(0deg) !important}
+.hd .name{letter-spacing:3px;color:#dcecff !important}
+.hd .tag{
+  border-radius:6px !important;
+  border:1px solid rgba(120,200,255,.5) !important;
+  background:linear-gradient(135deg,rgba(40,90,180,.5),rgba(10,30,70,.5)) !important;
+  box-shadow:2px 2px 0 rgba(0,0,0,.3);
+}
+
+/* 页眉：等轴色条 */
+.eyebrow{
+  color:#5fe0ff !important;
+  border-left:4px solid #5fe0ff;
+  padding-left:12px !important;
+  border-bottom:none !important;
+  text-shadow:none !important;
+  letter-spacing:4px;
+}
+
+/* 大标题：硬朗立体感，双层阴影模拟厚度 */
+.big{
+  color:#f4faff !important;
+  letter-spacing:1px !important;
+  text-shadow:2px 3px 0 rgba(20,60,120,.85), 4px 6px 18px rgba(0,0,0,.6) !important;
+}
+.big em{
+  background:linear-gradient(120deg,#5fe0ff,#7aa8ff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  text-shadow:2px 3px 0 rgba(10,40,90,.7) !important;
+}
+.sub{color:#b9d2f0 !important;text-shadow:1px 2px 6px rgba(0,0,0,.6) !important}
+
+/* 内容卡片：等轴浮层——顶面亮边 + 右下硬阴影，几何切角 */
+.item,.stat{
+  background:linear-gradient(150deg,rgba(26,48,92,.82),rgba(10,20,48,.86)) !important;
+  backdrop-filter:blur(8px) !important;
+  border:1px solid rgba(120,190,255,.35) !important;
+  border-top:2px solid rgba(150,220,255,.7) !important;
+  border-left:4px solid #5fe0ff !important;
+  border-radius:6px !important;
+  box-shadow:6px 7px 0 rgba(4,12,30,.55), inset 0 1px 0 rgba(255,255,255,.08) !important;
+  transform:none;
+}
+.item .n{color:#5fe0ff !important;text-shadow:2px 2px 0 rgba(0,0,0,.4)}
+.item h3{color:#f2f8ff !important}
+.item p{color:#b9cde8 !important}
+.stat .num{
+  background:linear-gradient(120deg,#5fe0ff,#8fb4ff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  text-shadow:2px 3px 0 rgba(10,40,90,.5) !important;
+}
+.stat .lbl{color:#b9cde8 !important}
+
+/* 时间线：等轴节点 */
+.tl::before{background:linear-gradient(#5fe0ff,#3a6fd8) !important;width:3px !important}
+.tl-item::before{
+  background:#0a1130 !important;border:3px solid #5fe0ff !important;
+  border-radius:4px !important;transform:rotate(45deg);
+  box-shadow:0 0 12px rgba(95,224,255,.6) !important;
+}
+.tl-date{color:#5fe0ff !important}
+.tl-text{color:#eaf4ff !important}
+
+/* ===== 等轴 2.5D 大字字幕：立体厚度 + 硬阴影 ===== */
+.caption{top:30%;bottom:14%;gap:8px 20px !important}
+.kin{
+  font-size:100px !important;
+  color:#f6fbff !important;
+  /* 立体厚度：右下方向的深色层叠 */
+  text-shadow:
+    2px 2px 0 #1b4a86,
+    4px 4px 0 #12305e,
+    6px 7px 22px rgba(0,0,0,.75) !important;
+  letter-spacing:3px !important;
+  font-weight:900 !important;
+}
+/* 错落字号（覆盖 inline），保留大小对比 */
+.kin:nth-child(2){font-size:64px !important}
+.kin:nth-child(3){font-size:92px !important}
+.kin:nth-child(4){font-size:58px !important}
+.kin:nth-child(5){font-size:108px !important}
+.kin:nth-child(6){font-size:68px !important}
+.kin:nth-child(7){font-size:84px !important}
+.kin.sm{font-size:62px !important;opacity:.94 !important;color:#cfe2ff !important}
+/* 弹出动画：等轴块「落位」感——从上方砸下带轻微回弹 */
+.kin.on{animation:kinIso .44s cubic-bezier(.16,1.05,.3,1) forwards}
+@keyframes kinIso{
+  0%{opacity:0;transform:translateY(-30px) scale(1.06)}
+  55%{opacity:1;transform:translateY(6px) scale(.98)}
+  78%{transform:translateY(-3px) scale(1.01)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+/* 高亮块：青蓝渐变字面 + 立体棱面阴影 */
+.kin.hl{
+  background:linear-gradient(120deg,#7ff0ff 0%,#5fb8ff 55%,#7a8cff 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;
+  text-shadow:3px 4px 0 rgba(12,36,82,.75), 5px 8px 24px rgba(0,0,0,.5) !important;
+}
+
+/* 关注按钮：等轴立体块 */
+.follow{
+  color:#04121a !important;
+  background:linear-gradient(135deg,#7ff0ff,#5fb8ff) !important;
+  border-radius:6px !important;
+  border-top:2px solid rgba(255,255,255,.6) !important;
+  box-shadow:5px 6px 0 rgba(8,30,70,.7) !important;
+  text-shadow:none !important;
+}
+
+/* 进度条：等轴亮条 */
+.bar{background:rgba(120,180,255,.2) !important;border-radius:3px !important;height:5px !important}
+.bar i{background:linear-gradient(90deg,#5fe0ff,#7a8cff) !important;border-radius:3px !important;box-shadow:0 0 10px rgba(95,224,255,.6)}
+.meta{color:#9fc0e8 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

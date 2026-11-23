@@ -1,0 +1,19 @@
+{
+  "id": "iso",
+  "name": "等轴2.5D",
+  "en": "isometric 2.5D",
+  "desc": "干净的等轴立体科技风：菱形网格地面、顶面/左面/右面三面立方体、落地阴影、立体厚度大字。适合系统架构、数据增长、流程关系、模块化拆解。",
+  "bg": "#0a1020",
+  "ink": "#eaf4ff",
+  "accent": "#5fe0ff",
+  "font": "无衬线科技体",
+  "themes": ["ice", "steel", "violet", "sunset"],
+  "visuals": [
+    {"name": "isoGrid", "desc": "等轴网格地面缓慢流动，做底纹", "opts": {"cells": 9, "speed": 0.35, "scale": 0.115}},
+    {"name": "isoBlocks", "desc": "立体方块群逐个升起（模块/系统/概念）", "opts": {"count": 7, "color": [0,200,255]}},
+    {"name": "isoChart", "desc": "等轴柱状图按数值生长（数据）", "opts": {"values": [0.5,0.8,0.62,0.95,0.74,0.88]}},
+    {"name": "isoFlow", "desc": "等轴节点+连线+流动光点（流程/关系）", "opts": {"nodes": 4}},
+    {"name": "isoTower", "desc": "中心数据塔逐层堆叠（增长/积累）", "opts": {"layers": 6}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"iso\"；每页 visual.name 用上表组件；theme 优先 ice/steel/violet；图片建议留空，让等轴立体组件成为主视觉。"
+}

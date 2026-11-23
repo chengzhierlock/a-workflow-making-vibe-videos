@@ -162,12 +162,13 @@ python pipeline.py "...\文章名.json" "输出名" --music "music.mp3"
 ```
 styles\
   sketch\            ← 逐帧手绘（已实现）
-    style.css        ← 覆盖默认 CSS：纸张背景/手写体/手绘卡片/圈注字幕
+  iso\               ← 等轴2.5D（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴皮肤、字体、卡片、立体字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
 
-**加一个新风格的步骤**（14 种待做风格都照此办理）：
+**加一个新风格的步骤**（待做风格都照此办理）：
 1. 在 `styles\` 下建 `<风格id>\` 文件夹，放 `style.css`（用 `!important` 覆盖默认类）、
    `visuals.js`（可选，注册新组件到 `global.VISUALS`）、`meta.json`（说明）。
 2. content.json 顶层 `"style": "<风格id>"`，页面 `visual.name` 用该风格组件。
@@ -177,8 +178,11 @@ styles\
 - `sketch` 逐帧手绘：米黄纸感 + 楷体手写 + 铅笔线稿逐笔勾勒。组件：
   `sketchDoodle`（简笔图标浮现）、`sketchArrows`（手绘箭头）、
   `sketchChart`（手绘柱图）、`sketchBulb`（手绘灯泡）。样片：`output\手绘样片.mp4`。
+- `iso` 等轴2.5D：菱形网格地面 + 三面立方体（顶/左/右）+ 落地阴影 + 立体厚度大字。组件：
+  `isoGrid`（流动网格）、`isoBlocks`（方块群升起）、`isoChart`（等轴柱图）、
+  `isoFlow`（节点+流动光点）、`isoTower`（数据塔堆叠）。样片：`output\等轴2.5D样片.mp4`。
 
-**待做风格清单**（按用户规划）：等轴2.5D、扁平矢量、线条动画、3D渲染、形变动画、
+**待做风格清单**（按用户规划）：扁平矢量、线条动画、3D渲染、形变动画、
 贴纸风科普、赛博朋克HUD、拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
 复古synthwave、像素风、液态流动、综艺花字。
 
