@@ -1,0 +1,74 @@
+{
+  "account": "内容便利店",
+  "title": "手绘风格样片",
+  "tag": "逐帧手绘 · 样片",
+  "style": "sketch",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "+6%",
+  "volume": "+0%",
+  "gap": 0.35,
+  "lead": 0.3,
+  "inner_gap": 0.12,
+  "music_volume": 0.16,
+  "music": "assets/music/vastness.mp3",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "逐帧手绘 · 风格样片",
+      "title": "一张纸，一支笔，<br>把复杂的事<>画</>明白",
+      "sub": "逐帧手绘风格 · 铅笔线稿逐笔浮现",
+      "theme": "amber",
+      "visual": {"name": "sketchDoodle", "opts": {"count": 7}},
+      "narration": [
+        "如果复杂的事情，只用一张纸和一支笔，就能讲明白，你会不会觉得，它其实也没那么难？",
+        "这就是手绘的力量。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "01 / 为什么是手绘",
+      "title": "看得见的<>思考</>",
+      "items": [
+        {"h": "slow is fast", "p": "一笔一笔画出来，脑子跟得上"},
+        {"h": "少即是多", "p": "去掉干扰，只留最关键的线条"}
+      ],
+      "theme": "sunset",
+      "visual": {"name": "sketchBulb", "opts": {}},
+      "narration": [
+        "手绘最迷人的地方，是它把思考的过程，画在了你眼前。",
+        "一根线慢慢画出来，你的脑子，刚好跟得上。",
+        "没有花哨的颜色，只有最关键的几笔。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "02 / 怎么用",
+      "title": "从<>想法</>到画面",
+      "items": [
+        {"h": "先画骨架", "p": "把大问题拆成几个小块"},
+        {"h": "再连箭头", "p": "让它们之间产生关系"},
+        {"h": "补上细节", "p": "重点的地方，圈出来"}
+      ],
+      "theme": "vine",
+      "visual": {"name": "sketchArrows", "opts": {"arrows": 3}},
+      "narration": [
+        "方法其实很简单。",
+        "先画骨架，把大问题，拆成几个小块。",
+        "再连上箭头，让它们之间，产生关系。",
+        "最后补上细节，重点的地方，用红笔圈出来。"
+      ]
+    },
+    {
+      "type": "end",
+      "eyebrow": "03 / 小结",
+      "title": "复杂的事，<br>值得<>慢慢画</>",
+      "sub": "内容便利店 · 把知识画给你看",
+      "theme": "amber",
+      "visual": {"name": "sketchChart", "opts": {"values": [0.4, 0.62, 0.55, 0.8, 0.7]}},
+      "narration": [
+        "所以别急着快。",
+        "复杂的事情，值得你，一笔一笔，慢慢画清楚。"
+      ]
+    }
+  ]
+}

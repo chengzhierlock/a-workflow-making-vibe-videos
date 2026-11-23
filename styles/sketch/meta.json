@@ -1,0 +1,17 @@
+{
+  "id": "sketch",
+  "name": "逐帧手绘",
+  "en": "frame-by-frame hand-drawn",
+  "desc": "米黄速写本纸张质感，手写楷体，铅笔线稿逐笔勾勒。适合科普、拆解、故事讲解、温柔叙事。",
+  "bg": "#f4ecd8",
+  "ink": "#4a3524",
+  "accent": "#a8562f",
+  "font": "楷体/手写体回退链",
+  "themes": ["amber", "sunset", "vine"],
+  "visuals": [
+    {"name": "sketchDoodle", "desc": "简笔图标涂鸦逐笔浮现", "opts": {"count": 7, "color": "#4a3524", "accent": "#a8562f"}},
+    {"name": "sketchArrows", "desc": "手绘箭头流程线逐条画出", "opts": {"arrows": 3}},
+    {"name": "sketchChart", "desc": "手绘柱状图逐根画出+斜线阴影", "opts": {"values": [0.45, 0.7, 0.55, 0.85, 0.68]}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"sketch\"；每页 visual.name 用上表组件；theme 优先 amber/sunset/vine；图片建议留空或用手绘感素材。"
+}

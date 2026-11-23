@@ -1,0 +1,32 @@
+# ===== 运行产物（体积巨大，绝不入库） =====
+# 中间工作目录：抓帧 jpg / 分句 mp3 / timeline / play.html / 静音视频
+_work/
+
+# 成品视频（每部约 50MB）
+output/
+
+# 运行日志（抓帧/合成/流水线 stdout 日志）
+*.log
+
+# ===== Python 缓存 =====
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ===== 系统 / 编辑器杂项 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.bak
+*.tmp
+
+# ===== Node =====
+node_modules/
+npm-debug.log*
+
+# ===== 本地凭证 / 私有配置（如后续加入） =====
+.env
+*.local

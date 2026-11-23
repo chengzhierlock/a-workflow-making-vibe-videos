@@ -1,0 +1,15 @@
+# Python 依赖（pip install -r requirements.txt）
+# edge-tts: 微软在线神经语音配音
+edge-tts>=7.3.1
+# numpy: 程序化垫乐（默认无版权 BGM 合成）
+numpy>=2.2.6
+
+# ============================================================
+# 以下为外部环境依赖（非 pip 安装，需本机自备）
+# ============================================================
+# 1) Python 3.11+（已在 Python 3.11 验证）
+# 2) ffmpeg / ffprobe（合成与音频处理，需在 PATH 或配置路径）
+# 3) Node.js 18+（抓帧脚本 capture.js 运行时）
+# 4) Playwright 1.65+（node 侧）：npm i playwright
+#    注意：capture.js 使用系统已安装的 Chrome，不依赖 playwright 自带浏览器
+# 5) Google Chrome（CDP 抓帧用）

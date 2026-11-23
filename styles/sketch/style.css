@@ -1,0 +1,152 @@
+/* ============================================================
+ * 风格皮肤：逐帧手绘 (sketch)
+ * 覆盖默认暗色科技皮肤，改成米黄纸张 + 手写铅笔质感。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+/* 纸张背景：米黄底 + 细噪点 + 轻微斜纹，模拟速写本 */
+html,body{
+  font-family:"Kaiti SC","STKaiti","KaiTi","楷体","Xingkai SC","STXingkai","华文行楷","Comic Sans MS",cursive !important;
+}
+.stage{
+  background:#d9cdb4 !important;
+  background-image:
+    radial-gradient(circle at 50% 30%, #f2e9d6 0%, #d9cdb4 70%, #c3b499 100%) !important;
+}
+.screen{
+  background:#f4ecd8 !important;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(60,50,35,.035) 0px, rgba(60,50,35,.035) 1px, transparent 1px, transparent 32px),
+    radial-gradient(circle at 48% 32%, #fbf6e8 0%, #f0e6cf 65%, #e2d5b8 100%) !important;
+  color:#2b2118 !important;
+  box-shadow:inset 0 0 120px rgba(120,95,55,.25), inset 0 0 0 3px rgba(90,70,45,.18) !important;
+}
+/* 去掉科技风的网格底纹 */
+.screen::before{
+  background-image:none !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+}
+
+/* 辉光/发光点：改成手绘铅笔小记号，或直接隐藏 */
+.glow{display:none !important}
+.dot{background:#8a7550 !important;box-shadow:none !important;opacity:.35 !important;border-radius:40% !important}
+
+/* 顶部品牌栏：黑色手绘下划线 */
+.hd .name{color:#2b2118 !important;letter-spacing:3px;text-shadow:none !important}
+.hd .tag{
+  color:#5a4630 !important;border:2px solid #6b5636 !important;border-radius:14px 9px 16px 8px !important;
+  background:rgba(255,255,255,.35) !important;
+  transform:rotate(-1.2deg);
+}
+.logo{border-color:#5a4630 !important;border-radius:48% 52% 45% 55% !important;box-shadow:none !important}
+.logo::after{border-color:#8a6a3a !important;border-radius:55% 45% 52% 48% !important}
+
+/* 页眉小标题：手绘下划线 */
+.eyebrow{
+  color:#a8562f !important;text-shadow:none !important;
+  letter-spacing:4px;
+  border-bottom:3px solid #c98a4b;
+  display:inline-block;
+  padding-bottom:4px;
+  transform:rotate(-1deg);
+}
+
+/* 静态大标题：墨黑手写 + 手绘波浪高亮 */
+.big{color:#241c14 !important;text-shadow:1px 2px 0 rgba(120,95,55,.18) !important;letter-spacing:2px !important}
+.big em{
+  background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;
+  color:#c0521f !important;
+  position:relative;
+  text-shadow:none !important;
+}
+.big em::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;height:8px;
+  background-image:radial-gradient(ellipse at 50% 100%, #d98b3a 45%, transparent 48%);
+  background-size:12px 8px;background-repeat:repeat-x;opacity:.8;
+}
+.sub{color:#5a4630 !important;text-shadow:none !important}
+
+/* 内容卡片：手绘不规则边框 + 铅笔阴影 + 轻微旋转 */
+.item,.stat{
+  background:rgba(255,252,242,.72) !important;
+  backdrop-filter:none !important;
+  border:2.5px solid #6b5636 !important;
+  border-left-width:6px !important;
+  border-left-color:#a8562f !important;
+  border-radius:18px 12px 20px 10px / 12px 20px 10px 18px !important;
+  box-shadow:4px 5px 0 rgba(107,86,54,.18) !important;
+  transform:rotate(-.5deg);
+}
+.item:nth-child(even),.stat:nth-child(even){transform:rotate(.6deg)}
+.item .n{color:#a8562f !important}
+.item h3{color:#241c14 !important}
+.item p{color:#5a4630 !important}
+.stat .num{
+  background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;
+  color:#a8562f !important;text-shadow:none !important;
+}
+
+/* 时间线：手绘竖线 + 圆圈节点 */
+.tl::before{background:#6b5636 !important;width:3px !important;border-radius:2px}
+.tl-item::before{background:#f4ecd8 !important;border:3px solid #a8562f !important;box-shadow:none !important;border-radius:45% 55% 48% 52% !important}
+.tl-date{color:#a8562f !important}
+.tl-text{color:#241c14 !important;text-shadow:none !important}
+
+/* ===== 逐帧手绘大字字幕：手写墨字，带手绘圈注底 ===== */
+/* 上移并放大，让手写字占住画面中部主视觉（覆盖 JS inline 字号） */
+/* 保留大小错落：nth-child 制造多档字号，手绘也要有大有小 */
+.caption{top:29%;bottom:15%;gap:10px 22px !important}
+.kin{
+  font-size:104px !important;
+  color:#241c14 !important;
+  text-shadow:1.5px 1.5px 0 rgba(255,255,255,.7) !important;
+  letter-spacing:4px !important;
+  /* 手写体字重稍降，更像笔迹 */
+  font-weight:700 !important;
+  transform:rotate(-1.2deg) translateY(30px) scale(.9);
+}
+.kin:nth-child(2){font-size:70px !important}
+.kin:nth-child(4){font-size:76px !important}
+.kin:nth-child(5){font-size:118px !important}
+.kin:nth-child(7){font-size:80px !important}
+/* 小字号块也整体放大（原 inline 50-56） */
+.kin.sm{font-size:72px !important}
+/* 让高亮的圈注包围整个高亮块更饱满 */
+.kin.hl::before{left:-8%;right:-8%;top:8%;bottom:0;border-width:4px}
+.kin:nth-child(even){transform:rotate(1deg) translateY(30px) scale(.9)}
+/* 弹出动画：手绘感——轻微过冲 + 抖动落定 */
+.kin.on{animation:kinSketch .5s cubic-bezier(.18,1.3,.4,1) forwards}
+@keyframes kinSketch{
+  0%{opacity:0;transform:rotate(-3deg) translateY(34px) scale(.8)}
+  55%{opacity:1;transform:rotate(1.5deg) translateY(-6px) scale(1.06)}
+  75%{transform:rotate(-1deg) translateY(2px) scale(.99)}
+  100%{opacity:1;transform:rotate(-1deg) translateY(0) scale(1)}
+}
+/* 高亮块：橙红墨色 + 手绘圈注背景 */
+.kin.hl{
+  background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;
+  color:#b8471a !important;text-shadow:1.5px 1.5px 0 rgba(255,255,255,.75) !important;
+  position:relative;z-index:1;
+}
+.kin.hl::before{
+  content:"";position:absolute;z-index:-1;left:-6%;right:-6%;top:12%;bottom:2%;
+  border:3px solid #d9853a;border-radius:50% 46% 52% 48%/60% 55% 50% 58%;
+  transform:rotate(-2deg);
+}
+.kin.sm{color:#6b5636 !important;opacity:.92 !important}
+
+/* 关注按钮：手绘 badges */
+.follow{
+  color:#fff8ea !important;background:#a8562f !important;
+  border:2.5px solid #6b3a1a;border-radius:30px 22px 34px 20px/26px 30px 22px 32px;
+  box-shadow:3px 4px 0 rgba(107,58,26,.3) !important;
+  transform:rotate(-1.5deg);text-shadow:none !important;
+}
+
+/* 底部进度条：手绘线条 */
+.bar{background:rgba(107,86,54,.25) !important;border-radius:8px 5px 9px 4px}
+.bar i{background:#a8562f !important;border-radius:6px}
+.meta{color:#6b5636 !important;text-shadow:none !important}
+
+/* 视觉动画画布：手绘线条是深色，正常在文字下层 */
+.vfx{opacity:.9}

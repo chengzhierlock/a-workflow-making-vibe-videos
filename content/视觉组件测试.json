@@ -1,0 +1,51 @@
+{
+  "account": "内容便利店",
+  "title": "视觉组件测试_星球",
+  "tag": "视觉测试",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "+8%",
+  "gap": 0.5,
+  "lead": 0.3,
+  "inner_gap": 0.1,
+  "music_volume": 0.16,
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "视觉组件 · 测试",
+      "title": "一颗<>转动</>的星球",
+      "sub": "视觉动画跟着稿子的意象走<br>讲到星球，页面里就有星球",
+      "visual": {"name": "planet", "opts": {"size": 0.34, "speed": 0.004, "dots": 180}},
+      "narration": ["我们生活在一颗不停转动的星球上。", "今天的画面，也会跟着这句话一起转动。"]
+    },
+    {
+      "type": "content",
+      "eyebrow": "01 / 连接",
+      "title": "星球上的<>十亿</>种连接",
+      "items": [
+        {"h": "人与人的连接", "p": "社交网络把孤立的点连成一张网"},
+        {"h": "数据与数据", "p": "光点沿着链路流动，构成数字生态"}
+      ],
+      "visual": {"name": "network", "opts": {"nodes": 42}},
+      "narration": ["星球上有几十亿人，彼此连接。", "每一个光点，都是一段关系。"]
+    },
+    {
+      "type": "stat",
+      "eyebrow": "02 / 冲击",
+      "title": "一个数字，<>激起涟漪</>",
+      "items": [
+        {"n": "2万亿", "l": "市值蒸发"},
+        {"n": "97%", "l": "员工请愿"}
+      ],
+      "visual": {"name": "ripple", "opts": {"rings": 5}},
+      "narration": ["一个数字公布，激起层层涟漪。", "扩散的速度，比想象中更快。"]
+    },
+    {
+      "type": "end",
+      "eyebrow": "VISUAL DEMO",
+      "title": "视觉跟着<>内容</>走",
+      "sub": "每天一页，自动放映<br>稿子讲什么，画面就演什么",
+      "visual": {"name": "particles", "opts": {"count": 110}},
+      "narration": ["稿子讲什么，画面就演什么。", "我们下期见。"]
+    }
+  ]
+}
