@@ -1,0 +1,19 @@
+{
+  "id": "cyber",
+  "name": "赛博朋克HUD",
+  "en": "cyberpunk HUD",
+  "desc": "战术目镜 / 仪表盘界面风：霓虹青品红、扫描线、CRT 纹理、雷达、准星、数据条、示波器、故障抖动。强调界面感与数据感，适合科技、数据监控、系统扫描类内容。",
+  "bg": "#03060f",
+  "ink": "#d8faff",
+  "accent": "#00f0ff",
+  "font": "等宽科技体",
+  "themes": ["ice", "rose", "steel", "violet"],
+  "visuals": [
+    {"name": "hudGrid", "desc": "透视网格地面 + 上下移动的扫描线（赛博空间底纹）", "opts": {"horizon": 0.46}},
+    {"name": "hudRadar", "desc": "圆形雷达 + 旋转扫描扇形 + 闪烁光点（搜索/扫描）", "opts": {"radius": 0.19}},
+    {"name": "hudBars", "desc": "HUD 数据条 + 刻度 + 数值跳动（数据/监控）", "opts": {"values": [0.72,0.48,0.91,0.63,0.85]}},
+    {"name": "hudTarget", "desc": "四角锁定准星 + 六边形 + 锁定动画（聚焦/目标）", "opts": {"radius": 0.17}},
+    {"name": "hudWave", "desc": "示波器波形 + 数字字符流（信号/声音）", "opts": {}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"cyber\"；每页 visual.name 用上表组件；theme 优先 ice/rose/steel/violet；深色底配霓虹描边字，标题带故障抖动动画。"
+}
