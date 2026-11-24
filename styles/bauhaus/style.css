@@ -1,0 +1,172 @@
+/* ============================================================
+ * 风格皮肤：包豪斯 (bauhaus / geometric constructivism)
+ * 覆盖默认暗色科技皮肤，做成严谨几何构成 + 红黄蓝三原色 + 网格排版。
+ * 关键词：米白纸底、三原色、直角硬边、黑粗线、无衬线、网格对齐、功能主义。
+ * 与扁平矢量区分：包豪斯是直角硬朗+克制三原色+网格秩序，不做圆角插画。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"Helvetica Neue","Arial","PingFang SC","Microsoft YaHei",system-ui,sans-serif !important;
+}
+.stage{
+  background:#f4f1e6 !important;
+  background-image:
+    linear-gradient(rgba(26,26,26,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(26,26,26,.06) 1px,transparent 1px) !important;
+  background-size:56px 56px,56px 56px !important;
+}
+.screen{
+  background:#fbf9f1 !important;
+  color:#1a1a1a !important;
+  border:4px solid #1a1a1a !important;
+  border-radius:0 !important;
+  box-shadow:14px 14px 0 rgba(26,26,26,.16) !important;
+}
+.screen::before{
+  background-image:
+    linear-gradient(135deg,rgba(214,40,40,.06) 0 22%,transparent 22%),
+    linear-gradient(315deg,rgba(29,78,156,.06) 0 22%,transparent 22%) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+}
+.glow{opacity:0 !important}
+.dot{
+  border-radius:0 !important;transform:none !important;
+  background:#d62828 !important;border:2px solid #1a1a1a !important;
+  box-shadow:none !important;
+}
+
+/* 品牌栏：方形原色徽标 */
+.logo{
+  border-radius:0 !important;border-width:3px !important;border-color:#1a1a1a !important;
+  background:#1d4e9c !important;box-shadow:none !important;
+}
+.logo::after{background:#f4a300 !important;inset:22% !important;border-radius:0 !important;transform:none !important}
+.hd .name{letter-spacing:3px;color:#1a1a1a !important;font-weight:900 !important}
+.hd .tag{
+  border-radius:0 !important;border:2px solid #1a1a1a !important;
+  background:#f4a300 !important;color:#1a1a1a !important;font-weight:800 !important;
+  box-shadow:none !important;
+}
+
+/* 页眉：黑边色签 */
+.eyebrow{
+  color:#1a1a1a !important;
+  background:#f4a300 !important;
+  border:2px solid #1a1a1a !important;
+  border-radius:0 !important;
+  padding:6px 18px !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+  letter-spacing:4px;font-weight:800 !important;
+}
+
+/* 大标题：黑色大字 + 原色块高亮 */
+.big{
+  color:#1a1a1a !important;letter-spacing:1px !important;
+  text-shadow:none !important;
+  font-weight:900 !important;
+}
+.big em{
+  color:#fff !important;
+  background:#d62828 !important;
+  padding:0 8px !important;
+  text-shadow:none !important;
+}
+.sub{color:#555 !important;text-shadow:none !important;font-weight:500 !important}
+
+/* 内容卡片：直角白卡 + 黑粗边 + 原色序号 */
+.item,.stat{
+  background:#fff !important;
+  border:3px solid #1a1a1a !important;
+  border-radius:0 !important;
+  box-shadow:7px 7px 0 rgba(26,26,26,.18) !important;
+  transform:none;
+}
+.item:nth-child(3n+2){box-shadow:7px 7px 0 #d62828 !important}
+.item:nth-child(3n+3){box-shadow:7px 7px 0 #1d4e9c !important}
+.item .n{
+  color:#fff !important;-webkit-text-fill-color:#fff !important;
+  background:#d62828 !important;border:2px solid #1a1a1a !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  text-shadow:none !important;font-weight:900 !important;border-radius:0 !important;
+}
+.item:nth-child(3n+2) .n{background:#1d4e9c !important}
+.item:nth-child(3n+3) .n{background:#f4a300 !important;color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important}
+.item h3{color:#1a1a1a !important;font-weight:900 !important}
+.item p{color:#555 !important}
+.stat .num{color:#d62828 !important;-webkit-text-fill-color:#d62828 !important;background:none !important;text-shadow:none !important}
+.stat .lbl{color:#555 !important}
+
+/* 时间线：黑轴 + 方形节点 */
+.tl::before{background:#1a1a1a !important;width:4px !important}
+.tl-item::before{
+  background:#f4a300 !important;border:3px solid #1a1a1a !important;border-radius:0 !important;transform:none !important;
+  box-shadow:none !important;
+}
+.tl-date{color:#1a1a1a !important;font-weight:900 !important}
+.tl-text{color:#333 !important}
+
+/* ===== 包豪斯字幕：直角白底深墨字 + 黑粗边 + 原色高亮块 =====
+   浅底深字保证任何原色组件铺上来都清晰，无需暗衬。
+   出场动画起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/半透明，不用 blur / opacity:0 / 大 scale。 */
+.caption{top:28%;bottom:13%;gap:10px 20px !important}
+.kin{
+  font-size:96px !important;
+  color:#1a1a1a !important;
+  background:#fff !important;
+  -webkit-text-fill-color:#1a1a1a !important;
+  -webkit-text-stroke:0 !important;
+  padding:2px 16px 6px !important;
+  border:4px solid #1a1a1a !important;
+  border-radius:0 !important;
+  box-shadow:7px 7px 0 rgba(26,26,26,.9) !important;
+  text-shadow:none !important;
+  letter-spacing:1px !important;
+  font-weight:900 !important;
+}
+/* 错落原色块：红/黄/蓝 + 黑字或白字 */
+.kin:nth-child(2){background:#f4a300 !important;color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important}
+.kin:nth-child(3){background:#fff !important}
+.kin:nth-child(4){background:#d62828 !important;color:#fff !important;-webkit-text-fill-color:#fff !important}
+.kin:nth-child(5){background:#1d4e9c !important;color:#fff !important;-webkit-text-fill-color:#fff !important}
+.kin:nth-child(6){background:#fff !important}
+.kin:nth-child(7){background:#f4a300 !important;color:#1a1a1a !important;-webkit-text-fill-color:#1a1a1a !important}
+/* 小字块：浅灰纸片，不抢主字 */
+.kin.sm{font-size:56px !important;background:#e8e4d6 !important;color:#555 !important;-webkit-text-fill-color:#555 !important;box-shadow:5px 5px 0 rgba(26,26,26,.5) !important;font-weight:700 !important}
+/* 长句块数多时整体收紧 */
+.caption:has(.kin:nth-child(6)) .kin{font-size:70px !important;padding:2px 10px 4px !important;border-width:3px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:52px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:42px !important}
+/* 出场：微放大回正（起始态可读，避免脏帧） */
+.kin.on{animation:kinBauhaus .34s cubic-bezier(.2,.9,.3,1) both}
+@keyframes kinBauhaus{
+  0%{opacity:.7;transform:scale(1.08)}
+  100%{opacity:1;transform:scale(1)}
+}
+/* 高亮块：红底白字 + 黑粗边（最醒目） */
+.kin.hl{
+  background:#d62828 !important;
+  -webkit-text-fill-color:#fff !important;color:#fff !important;
+  border-color:#1a1a1a !important;
+  box-shadow:8px 8px 0 #1a1a1a !important;
+  padding:2px 14px 6px !important;
+}
+
+/* 关注按钮：原色方块 */
+.follow{
+  color:#fff !important;background:#1d4e9c !important;
+  border:3px solid #1a1a1a !important;border-radius:0 !important;
+  box-shadow:5px 5px 0 #1a1a1a !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+
+/* 进度条：黑边原色条 */
+.bar{background:rgba(26,26,26,.12) !important;border-radius:0 !important;height:10px !important;border:2px solid #1a1a1a !important}
+.bar i{background:#d62828 !important;border-radius:0 !important;box-shadow:none !important;border:none !important}
+.meta{color:#555 !important;font-weight:700 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

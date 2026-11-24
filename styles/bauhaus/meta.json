@@ -1,0 +1,19 @@
+{
+  "id": "bauhaus",
+  "name": "包豪斯",
+  "en": "bauhaus / geometric constructivism",
+  "desc": "严谨几何构成 + 红黄蓝三原色 + 网格排版：米白纸底、直角硬边、黑粗线、圆/方/三角基本形、同心圆眼睛图案、无衬线大字。强调「秩序、功能、克制」的德式构成感。与扁平矢量区分：这里全是直角硬朗+三原色克制配色+网格对齐，不做圆角插画。适合讲设计、结构、方法论、效率的内容。",
+  "bg": "#f4f1e6",
+  "ink": "#1a1a1a",
+  "accent": "#d62828",
+  "font": "Helvetica/Arial 无衬线 + 直角粗边字",
+  "themes": ["amber", "sunset", "vine", "ice"],
+  "visuals": [
+    {"name": "bauhausGrid", "desc": "网格构成底纹+三原色方块点缀，缓慢呼吸（秩序/底纹）", "opts": {"cell": 120}},
+    {"name": "bauhausShapes", "desc": "圆/方/三角原色几何构成，网格对齐逐个就位（基本形/模块）", "opts": {"count": 6}},
+    {"name": "bauhausBars", "desc": "粗细不一的原色竖条按数值生长，硬朗直角黑边（数据/节奏）", "opts": {"count": 7}},
+    {"name": "bauhausCircle", "desc": "同心圆/半圆扇形构成，包豪斯经典眼睛图案缓慢旋转（聚焦/构成）", "opts": {"rings": 4}},
+    {"name": "bauhausType", "desc": "无衬线大号数字/字母排版漂浮（文字构成/强调）", "opts": {"count": 4, "chars": ["A", "B", "3", "6", "◐", "△"]}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"bauhaus\"；每页 visual.name 用上表组件；主题建议 amber/sunset/vine/ice。核心手法：只用红黄蓝三原色+黑+米白，全部直角硬边、黑粗描边、网格对齐；bauhausCircle 用同心半圆扇形交错做经典眼睛图案。字幕用直角白底深墨字+黑粗边+原色错落块，浅底深字保证原色组件铺上来仍清晰；出场动画起始态保持可读以免 seek 抓帧固化脏帧；所有随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}

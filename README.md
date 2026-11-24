@@ -171,7 +171,8 @@ styles\
   morph\             ← 形变动画（已实现）
   collage\           ← 拼贴剪纸（已实现）
   glass\             ← 弥散渐变玻璃拟态（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃皮肤、字体、卡片、字幕
+  bauhaus\           ← 包豪斯（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -217,9 +218,13 @@ styles\
   白玻璃片字幕（不透明白底+深墨字，亮光斑铺上来也清晰）。组件：
   `glassBlob`（弥散光斑漂移）、`glassCard`（毛玻璃卡片）、`glassOrb`（玻璃球高光弧）、
   `glassRing`（玻璃圆环流光）、`glassMesh`（玻璃珠网格）。样片：`output\弥散玻璃拟态样片.mp4`。
+- `bauhaus` 包豪斯：米白网格纸底 + 红黄蓝三原色 + 直角黑粗边 + 几何构成（圆/方/三角/同心圆眼睛图案），
+  白底深墨字配原色错落块，功能主义秩序感，与扁平矢量的圆角插画区分。组件：
+  `bauhausGrid`（网格色块底纹）、`bauhausShapes`（三原色基本形）、`bauhausBars`（原色柱图）、
+  `bauhausCircle`（同心圆眼睛图案）、`bauhausType`（无衬线大字排版）。样片：`output\包豪斯样片.mp4`。
 
 **待做风格清单**（按用户规划）：贴纸风科普、
-几何构成包豪斯、复古synthwave、像素风、液态流动。
+复古synthwave、像素风、液态流动。
 
 ## 配音音色（edge-tts 微软在线神经语音）
 
