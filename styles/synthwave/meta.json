@@ -1,0 +1,19 @@
+{
+  "id": "synthwave",
+  "name": "复古Synthwave",
+  "en": "retro synthwave / retrowave / outrun",
+  "desc": "80年代复古未来主义霓虹美学：紫粉渐变夜空 + 落地横纹落日 + 透视网格地面 + 棕榈剪影 + CRT扫描线 + 霓虹辉光字。强调「怀旧、赛博浪漫、夜晚公路」氛围，与赛博朋克HUD的仪表盘/雷达界面感区分：这里没有面板和准星，只有大片渐变天空、落日与网格。适合讲科技怀旧、未来想象、游戏电影、音乐类内容。",
+  "bg": "#1a0b2e",
+  "ink": "#ffe9f6",
+  "accent": "#ff3ca6",
+  "font": "粗无衬线 + 霓虹发光字",
+  "themes": ["violet", "rose", "sunset", "ice"],
+  "visuals": [
+    {"name": "synthSun", "desc": "经典横纹落日：渐变圆盘 + 横向切割条纹 + 呼吸辉光（怀旧/主视觉）", "opts": {"cx": 0.5, "cy": 0.42, "r": 0.24}},
+    {"name": "synthGrid", "desc": "透视网格地面：向地平线消失的流动网格 + 霓虹地平线（空间/公路）", "opts": {"horizon": 0.58, "rows": 14}},
+    {"name": "synthPalms", "desc": "棕榈树剪影：左右两侧黑色棕榈 + 轻微摇曳（度假/夜晚）", "opts": {"count": 2}},
+    {"name": "synthMountains", "desc": "霓虹线框山脉：地平线起伏山峦 + 发光描边（远景/氛围）", "opts": {"peaks": 9}},
+    {"name": "synthStars", "desc": "星空 + 交叉光射线 + 流星划过（夜空/点缀）", "opts": {"count": 60}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"synthwave\"；每页 visual.name 用上表组件；主题建议 violet/rose/sunset/ice。核心手法：深紫粉渐变夜空 + 横纹落日 + 透视网格，字幕用霓虹描边发光字（深色衬底 + 粉青双色辉光，亮组件铺上来也清晰）；出场起始态保持可读以免 seek 抓帧固化脏帧；横纹太阳用横向 strip 切割，随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}

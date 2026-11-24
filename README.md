@@ -172,7 +172,8 @@ styles\
   collage\           ← 拼贴剪纸（已实现）
   glass\             ← 弥散渐变玻璃拟态（已实现）
   bauhaus\           ← 包豪斯（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯皮肤、字体、卡片、字幕
+  synthwave\         ← 复古Synthwave（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯/synthwave皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -222,9 +223,12 @@ styles\
   白底深墨字配原色错落块，功能主义秩序感，与扁平矢量的圆角插画区分。组件：
   `bauhausGrid`（网格色块底纹）、`bauhausShapes`（三原色基本形）、`bauhausBars`（原色柱图）、
   `bauhausCircle`（同心圆眼睛图案）、`bauhausType`（无衬线大字排版）。样片：`output\包豪斯样片.mp4`。
+- `synthwave` 复古Synthwave：紫粉渐变夜空 + 横纹切割落日 + 透视网格地面 + 棕榈剪影 + CRT 扫描线 +
+  霓虹辉光字，强调 80 年代夜晚公路 / 赛博浪漫氛围，与赛博朋克HUD的仪表雷达感区分。组件：
+  `synthSun`（横纹落日）、`synthGrid`（透视网格地面）、`synthPalms`（棕榈剪影）、
+  `synthMountains`（霓虹线框山脉）、`synthStars`（星空+光射线+流星）。样片：`output\复古synthwave样片.mp4`。
 
-**待做风格清单**（按用户规划）：贴纸风科普、
-复古synthwave、像素风、液态流动。
+**待做风格清单**（按用户规划）：贴纸风科普、像素风、液态流动。
 
 ## 配音音色（edge-tts 微软在线神经语音）
 

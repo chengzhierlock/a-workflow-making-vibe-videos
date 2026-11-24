@@ -1,0 +1,180 @@
+/* ============================================================
+ * 风格皮肤：复古 Synthwave (retro synthwave / retrowave / outrun)
+ * 覆盖默认暗色科技皮肤，做成 80 年代复古未来主义霓虹美学。
+ * 关键词：紫粉渐变夜空、横纹落日、透视网格、棕榈剪影、CRT 扫描线、霓虹辉光字。
+ * 与赛博朋克 HUD 区分：这里没有雷达/准星/仪表盘面板，只有大片渐变天空、
+ *   落日与网格地面，强调「夜晚公路 / 赛博浪漫」氛围。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器 + !important 覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"Helvetica Neue","Arial","PingFang SC","Microsoft YaHei",system-ui,sans-serif !important;
+}
+.stage{background:#07030f !important}
+
+/* 屏幕：紫粉渐变夜空，地平线附近亮带（落日/网格由 canvas 叠加） */
+.screen{
+  background:linear-gradient(180deg,
+    #120626 0%,#2b0a44 26%,#5a1357 45%,#a52a63 56%,
+    #e0526a 63%,#ff8a5b 66%,#2a0c3e 67%,#150627 100%) !important;
+  color:#ffe9f6 !important;
+  border-color:rgba(255,60,166,.35) !important;
+}
+
+/* CRT 扫描线 + 暗角，覆盖默认点阵网格 */
+.screen::before{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0px,rgba(0,0,0,.16) 1px,transparent 1px,transparent 3px),
+    radial-gradient(ellipse at 50% 42%,transparent 45%,rgba(5,0,15,.55) 100%) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+  z-index:2 !important;pointer-events:none !important;
+}
+
+/* 光斑：霓虹粉紫辉光 */
+.glow.g1{background:#ff2e9a !important;opacity:.34 !important}
+.glow.g2{background:#7b3cff !important;opacity:.30 !important}
+.dot{background:#ff7ad9 !important;box-shadow:0 0 10px #ff3ca6 !important}
+
+/* 品牌栏：霓虹圆徽标 */
+.logo{
+  border-color:#00e5ff !important;
+  box-shadow:0 0 14px rgba(0,229,255,.7),inset 0 0 10px rgba(0,229,255,.4) !important;
+}
+.logo::after{border-color:#ff3ca6 !important;box-shadow:0 0 10px rgba(255,60,166,.6) !important}
+.hd .name{
+  color:#fff !important;letter-spacing:3px;font-weight:900 !important;
+  text-shadow:0 0 10px rgba(255,60,166,.8),0 0 24px rgba(255,60,166,.5) !important;
+}
+.hd .tag{
+  color:#00e5ff !important;border-color:rgba(0,229,255,.5) !important;
+  background:rgba(10,4,30,.5) !important;
+  text-shadow:0 0 8px rgba(0,229,255,.7) !important;
+}
+
+/* 页眉：霓虹粉标签 */
+.eyebrow{
+  color:#00e5ff !important;
+  text-shadow:0 0 10px rgba(0,229,255,.9),0 0 26px rgba(0,229,255,.5) !important;
+  letter-spacing:5px;font-weight:800 !important;
+}
+
+/* 大标题：白字霓虹辉光，高亮 em 青粉渐变 */
+.big{
+  color:#fff !important;
+  text-shadow:0 0 8px rgba(255,255,255,.7),0 0 22px rgba(255,60,166,.8),0 4px 20px rgba(0,0,0,.9) !important;
+  font-weight:900 !important;
+}
+.big em{
+  background:linear-gradient(90deg,#00e5ff,#ff3ca6) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;
+  filter:drop-shadow(0 0 12px rgba(255,60,166,.6)) !important;
+}
+.sub{color:#f4d9ee !important;text-shadow:0 2px 14px rgba(0,0,0,.85) !important}
+
+/* 内容卡片：半透明深色 + 霓虹粉边 + 发光 */
+.item,.stat{
+  background:rgba(18,6,38,.66) !important;
+  border:1px solid rgba(255,60,166,.55) !important;
+  border-left:4px solid #ff3ca6 !important;
+  box-shadow:0 0 22px rgba(255,60,166,.22),inset 0 0 18px rgba(123,60,255,.12) !important;
+  border-radius:12px !important;
+  backdrop-filter:blur(4px) !important;
+}
+.item:nth-child(3n+2){border-left-color:#00e5ff !important;border-color:rgba(0,229,255,.5) !important}
+.item:nth-child(3n+3){border-left-color:#b065ff !important;border-color:rgba(176,101,255,.5) !important}
+.item .n{
+  color:#00e5ff !important;-webkit-text-fill-color:#00e5ff !important;
+  text-shadow:0 0 12px rgba(0,229,255,.8) !important;font-weight:900 !important;
+}
+.item:nth-child(3n+2) .n{color:#ff5fb8 !important;-webkit-text-fill-color:#ff5fb8 !important;text-shadow:0 0 12px rgba(255,95,184,.8) !important}
+.item h3{color:#fff !important;font-weight:800 !important;text-shadow:0 2px 10px rgba(0,0,0,.6) !important}
+.item p{color:#e3cfe8 !important}
+.stat .num{
+  background:linear-gradient(90deg,#00e5ff,#ff3ca6) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  filter:drop-shadow(0 0 14px rgba(255,60,166,.5)) !important;
+}
+.stat .lbl{color:#e3cfe8 !important}
+
+/* 时间线：霓虹粉轴 + 青色节点 */
+.tl::before{background:linear-gradient(#ff3ca6,#7b3cff) !important;box-shadow:0 0 12px rgba(255,60,166,.6) !important}
+.tl-item::before{
+  background:#00e5ff !important;border-color:#fff !important;
+  box-shadow:0 0 14px rgba(0,229,255,.9) !important;
+}
+.tl-date{color:#00e5ff !important;font-weight:800 !important;text-shadow:0 0 10px rgba(0,229,255,.7) !important}
+.tl-text{color:#f0dcee !important}
+
+/* ===== Synthwave 字幕：中部霓虹辉光大字，大小不一，弹出填充画面 =====
+   深色衬底 + 粉青双色辉光 + 黑描边，保证亮色落日/网格铺上来仍清晰。
+   字号由内联 style 硬编码，必须用 !important + nth-child 覆盖成大小交替。
+   出场起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/近全不透明，不用 blur / opacity:0 / 大 scale。 */
+.caption{top:25%;bottom:14%;gap:6px 16px !important}
+.kin{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  background:rgba(14,5,32,.42) !important;
+  padding:0 12px 4px !important;
+  border-radius:8px !important;
+  line-height:1.1 !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.85),
+    0 0 18px rgba(255,60,166,.95),
+    0 0 42px rgba(255,60,166,.7),
+    0 3px 12px rgba(0,0,0,.95) !important;
+  -webkit-text-stroke:0 !important;
+}
+/* 大小不一：大—小—中—小—大—小—中 交替，撑满画面 */
+.caption .kin:nth-child(1){font-size:104px !important}
+.caption .kin:nth-child(2){font-size:58px !important}
+.caption .kin:nth-child(3){font-size:82px !important}
+.caption .kin:nth-child(4){font-size:56px !important}
+.caption .kin:nth-child(5){font-size:100px !important}
+.caption .kin:nth-child(6){font-size:54px !important}
+.caption .kin:nth-child(7){font-size:78px !important}
+/* 高亮块：实心青底 + 深字 + 强辉光（最醒目，呼应霓虹招牌） */
+.kin.hl{
+  background:linear-gradient(100deg,#00e5ff,#ff3ca6) !important;
+  -webkit-text-fill-color:#160426 !important;color:#160426 !important;
+  border-radius:10px !important;
+  box-shadow:0 0 26px rgba(0,229,255,.7),0 0 44px rgba(255,60,166,.45) !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.35) !important;
+  padding:0 16px 4px !important;
+}
+/* 小字块：青色辉光，与主字拉开层次 */
+.kin.sm{
+  -webkit-text-fill-color:#8ff6ff !important;color:#8ff6ff !important;
+  text-shadow:0 0 8px rgba(0,229,255,.9),0 0 22px rgba(0,229,255,.55),0 2px 10px rgba(0,0,0,.9) !important;
+  background:rgba(6,20,40,.42) !important;
+}
+/* 长句块数多时整体收紧，避免溢出 */
+.caption:has(.kin:nth-child(6)) .kin{letter-spacing:0 !important}
+.caption:has(.kin:nth-child(7)) .kin:nth-child(1),
+.caption:has(.kin:nth-child(7)) .kin:nth-child(5){font-size:84px !important}
+/* 出场：微放大回正（起始态可读，避免脏帧） */
+.kin.on{animation:kinSynth .38s cubic-bezier(.2,.9,.3,1) both}
+@keyframes kinSynth{
+  0%{opacity:.88;transform:scale(1.06)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* 关注按钮：粉青霓虹渐变 + 辉光 */
+.follow{
+  color:#160426 !important;
+  background:linear-gradient(100deg,#00e5ff,#ff3ca6) !important;
+  box-shadow:0 0 28px rgba(255,60,166,.6) !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+
+/* 进度条：霓虹渐变 */
+.bar{background:rgba(255,255,255,.16) !important;box-shadow:0 0 8px rgba(255,60,166,.3) !important}
+.bar i{background:linear-gradient(90deg,#00e5ff,#ff3ca6) !important;box-shadow:0 0 12px rgba(255,60,166,.8) !important}
+.meta{color:#e9cfe8 !important;text-shadow:0 1px 6px rgba(0,0,0,.8) !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}
