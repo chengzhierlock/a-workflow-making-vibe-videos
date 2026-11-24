@@ -1,0 +1,188 @@
+/* ============================================================
+ * 风格皮肤：3D 渲染 (render3d)
+ * 覆盖默认暗色科技皮肤，做成有光照/材质/景深的电影级 3D 质感。
+ * 关键词：深空底、玻璃卡片、金属渐变字、球面高光、柔和辉光、
+ * 立体厚度字幕。与等轴2.5D的硬边纯色三面不同，这里强调光照过渡。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif !important;
+}
+.stage{
+  background:#040914 !important;
+  background-image:radial-gradient(ellipse at 50% 22%, #123a63 0%, #0a1a34 38%, #040914 78%) !important;
+}
+.screen{
+  background:linear-gradient(160deg,rgba(20,44,78,.72) 0%,rgba(8,18,40,.82) 55%,rgba(16,12,42,.78) 100%) !important;
+  color:#eaf6ff !important;
+  border:2px solid rgba(120,200,255,.32) !important;
+  border-radius:30px !important;
+  box-shadow:0 30px 90px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.16),
+             inset 0 0 60px rgba(60,150,255,.08) !important;
+  backdrop-filter:blur(14px) !important;
+}
+/* 顶部柔光斑 + 底部网格辉光 */
+.screen::before{
+  background-image:
+    radial-gradient(circle at 30% 8%, rgba(90,209,255,.16) 0%, transparent 42%),
+    radial-gradient(circle at 78% 88%, rgba(176,124,255,.14) 0%, transparent 46%) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+}
+.glow{opacity:.9 !important}
+.dot{
+  border-radius:50% !important;transform:none !important;
+  background:radial-gradient(circle at 32% 30%,#fff,#5ad1ff 45%,#1a5f9e 100%) !important;
+  border:none !important;
+  box-shadow:0 0 16px rgba(90,209,255,.7) !important;
+}
+
+/* 品牌栏：玻璃球徽标 */
+.logo{
+  border-radius:50% !important;border-width:2px !important;
+  border-color:rgba(255,255,255,.4) !important;
+  background:radial-gradient(circle at 32% 28%,#fff,#5ad1ff 42%,#2a4a9e 100%) !important;
+  box-shadow:inset -4px -6px 12px rgba(0,0,0,.35),0 0 20px rgba(90,209,255,.5) !important;
+}
+.logo::after{border-radius:50% !important;transform:none !important;background:rgba(255,255,255,.85) !important;inset:18% !important}
+.hd .name{letter-spacing:2px;color:#eaf6ff !important;font-weight:800 !important}
+.hd .tag{
+  border-radius:999px !important;
+  border:1px solid rgba(120,200,255,.4) !important;
+  background:linear-gradient(180deg,rgba(90,209,255,.22),rgba(176,124,255,.18)) !important;
+  color:#bfe9ff !important;font-weight:700 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2) !important;
+}
+
+/* 页眉：冷光细签 */
+.eyebrow{
+  color:#9fe4ff !important;
+  background:rgba(90,209,255,.1) !important;
+  border:1px solid rgba(90,209,255,.34) !important;
+  border-radius:999px !important;
+  padding:6px 20px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 0 24px rgba(90,209,255,.12) !important;
+  text-shadow:0 0 18px rgba(90,209,255,.5) !important;
+  letter-spacing:4px;font-weight:700 !important;
+}
+
+/* 大标题：金属渐变 + 柔光 */
+.big{
+  color:#f2fbff !important;
+  letter-spacing:2px !important;
+  background:linear-gradient(180deg,#ffffff 0%,#bfe9ff 45%,#5ad1ff 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 46px rgba(90,209,255,.28) !important;
+  font-weight:900 !important;
+}
+.big em{
+  background:linear-gradient(180deg,#fff 0%,#b07cff 55%,#5ad1ff 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;-webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 34px rgba(176,124,255,.5) !important;
+}
+.sub{color:#9fb6d4 !important;text-shadow:none !important;font-weight:500 !important}
+
+/* 内容卡片：玻璃材质 + 边缘高光 */
+.item,.stat{
+  background:linear-gradient(155deg,rgba(90,160,230,.14),rgba(20,32,62,.5)) !important;
+  border:1px solid rgba(150,210,255,.26) !important;
+  border-radius:22px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 16px 40px rgba(0,0,0,.35),
+             0 0 0 1px rgba(0,0,0,.2) !important;
+  backdrop-filter:blur(10px) !important;
+  transform:none;
+}
+.item .n{
+  background:linear-gradient(180deg,#fff,#5ad1ff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;-webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 24px rgba(90,209,255,.4) !important;font-weight:900 !important;
+}
+.item h3{color:#eaf6ff !important;font-weight:800 !important}
+.item p{color:#a9bdd8 !important}
+.stat .num{
+  background:linear-gradient(180deg,#ffffff 0%,#9fe4ff 50%,#5ad1ff 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;-webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 30px rgba(90,209,255,.35) !important;
+}
+.stat .lbl{color:#9fb6d4 !important}
+
+/* 时间线：冷光节点 */
+.tl::before{background:linear-gradient(180deg,rgba(90,209,255,.7),rgba(176,124,255,.5)) !important;width:3px !important}
+.tl-item::before{
+  background:radial-gradient(circle at 34% 30%,#fff,#5ad1ff 55%,#2a4a9e) !important;
+  border:2px solid rgba(255,255,255,.5) !important;
+  border-radius:50% !important;transform:none !important;
+  box-shadow:0 0 18px rgba(90,209,255,.8) !important;
+}
+.tl-date{color:#9fe4ff !important;font-weight:800 !important}
+.tl-text{color:#dbeafe !important}
+
+/* ===== 3D 渲染立体字幕：光照厚度 + 高光 + 辉光 ===== */
+.caption{top:28%;bottom:13%;gap:11px 22px !important}
+.kin{
+  font-size:98px !important;
+  color:#ffffff !important;
+  -webkit-text-stroke:2px rgba(120,200,255,.5) !important;
+  paint-order:stroke fill !important;
+  /* 多层阴影 = 立体厚度：顶部高光 + 底部冷色环境反光 */
+  text-shadow:
+    0 -2px 0 rgba(255,255,255,.9),
+    0 3px 0 #2c6ea8, 0 6px 0 #1c4a80, 0 9px 0 #122e59,
+    0 13px 18px rgba(0,0,0,.55), 0 0 34px rgba(90,209,255,.32) !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+}
+/* 错落字号 + 冷色渐变副块 */
+.kin:nth-child(2){font-size:66px !important;color:#bfe9ff !important}
+.kin:nth-child(3){font-size:94px !important;color:#fff !important}
+.kin:nth-child(4){font-size:62px !important;color:#c8b6ff !important}
+.kin:nth-child(5){font-size:106px !important;color:#fff !important}
+.kin:nth-child(6){font-size:68px !important;color:#9fe4ff !important}
+.kin:nth-child(7){font-size:84px !important;color:#fff !important}
+.kin.sm{font-size:58px !important;opacity:1 !important;color:#8fb4d8 !important;font-weight:700 !important}
+/* 长句块数多时整体收紧（flat/line/huazi 经验） */
+.caption:has(.kin:nth-child(6)) .kin{font-size:74px !important;-webkit-text-stroke-width:1.5px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:54px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:46px !important}
+/* 出场：轻微上浮 + 微放大。
+   关键：起始态必须「可读」——seek 逐帧抓帧会把动画中间态固化成成品帧，
+   若起始 scale 过大 / opacity 为 0，长句后几个字块就卡成半透明的巨大脏字。
+   这里起始只 1.12 倍、opacity .55，任何中间帧都清楚。 */
+.kin.on{animation:kinRender .32s ease-out forwards}
+@keyframes kinRender{
+  0%{opacity:.55;transform:translateY(8px) scale(1.12)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+/* 高亮块：金属冰蓝→紫渐变 + 深色描边 + 球面高光 */
+.kin.hl{
+  background:linear-gradient(165deg,#ffffff 0%,#9fe4ff 38%,#5ad1ff 70%,#9d7bff 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:transparent !important;
+  -webkit-text-stroke:4px #0a1c3c !important;
+  text-shadow:0 5px 0 #0a1c3c,0 9px 0 #123a63,0 14px 26px rgba(0,0,0,.6),0 0 30px rgba(90,209,255,.45) !important;
+  padding:0 8px !important;
+}
+
+/* 关注按钮：玻璃胶囊 */
+.follow{
+  color:#eaf6ff !important;
+  background:linear-gradient(180deg,rgba(90,209,255,.3),rgba(176,124,255,.26)) !important;
+  border:1px solid rgba(150,210,255,.45) !important;
+  border-radius:999px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 8px 24px rgba(0,0,0,.35) !important;
+  text-shadow:none !important;font-weight:700 !important;
+}
+
+/* 进度条：冰蓝辉光条 */
+.bar{background:rgba(150,210,255,.16) !important;border-radius:999px !important;height:8px !important}
+.bar i{background:linear-gradient(90deg,#5ad1ff,#9d7bff,#ff6ec7) !important;border-radius:999px !important;box-shadow:0 0 16px rgba(90,209,255,.7) !important;border:none !important}
+.meta{color:#8fa8c8 !important;font-weight:600 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

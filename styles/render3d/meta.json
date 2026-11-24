@@ -1,0 +1,19 @@
+{
+  "id": "render3d",
+  "name": "3D渲染",
+  "en": "physically-lit 3D render",
+  "desc": "电影级 3D 质感风格：深空底、光照明暗、金属渐变、球面高光、透视景深、柔和阴影。球体/立方体/环面/网格地面/粒子场都有真实光照过渡，与等轴2.5D的纯色硬边三面明确区分。适合科技感、产品感、数据可视化。",
+  "bg": "#040914",
+  "ink": "#eaf6ff",
+  "accent": "#5ad1ff",
+  "font": "现代无衬线 + 金属渐变字",
+  "themes": ["ice", "steel", "violet", "rose"],
+  "visuals": [
+    {"name": "renderSphere", "desc": "光照球体：径向渐变材质 + 高光 + 菲涅尔边 + 软阴影（主体/材质）", "opts": {"count": 3, "radius": 0.11}},
+    {"name": "renderCube", "desc": "透视旋转立方体：法线光照 + 背面剔除（结构/系统）", "opts": {"count": 1, "size": 0.13}},
+    {"name": "renderTorus", "desc": "3D 环面点云：深度排序 + 高光（循环/连接）", "opts": {"radius": 0.16, "tube": 0.34}},
+    {"name": "renderFloor", "desc": "透视网格地面 + 地平线辉光（空间/场景）", "opts": {"horizon": 0.62}},
+    {"name": "renderParticles", "desc": "3D 粒子场：近大远小 + 深度雾（氛围/数据流）", "opts": {"count": 80}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"render3d\"；每页 visual.name 用上表组件；主题建议 ice/steel/violet/rose 深色调，与球面高光/辉光最搭。CSS 立体字幕靠多层 text-shadow 叠出光照厚度，高亮块为金属冰蓝→紫渐变。"
+}

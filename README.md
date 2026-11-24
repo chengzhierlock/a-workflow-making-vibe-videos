@@ -167,7 +167,8 @@ styles\
   line\              ← 线条动画（已实现）
   cyber\             ← 赛博朋克HUD（已实现）
   huazi\             ← 综艺花字（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺皮肤、字体、卡片、字幕
+  render3d\          ← 3D渲染（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -197,8 +198,12 @@ styles\
 - `huazi` 综艺花字：亮色暖底 + 彩色粗描边立体字 + 倾斜弹出 + 爆炸高亮，字幕即主角。组件：
   `huaziBurst`（爆炸放射线）、`huaziStars`（闪烁星星）、`huaziArrows`（手绘箭头）、
   `huaziSpeech`（对话气泡）、`huaziConfetti`（彩带纸屑）。样片：`output\综艺花字样片.mp4`。
+- `render3d` 3D渲染：深空底 + 光照明暗 + 球面高光 + 金属渐变字 + 透视景深 + 玻璃卡片，
+  与等轴2.5D的纯色硬边三面区分开。组件：
+  `renderSphere`（光照球体）、`renderCube`（透视旋转立方体）、`renderTorus`（3D环面点云）、
+  `renderFloor`（透视网格地面）、`renderParticles`（3D粒子场）。样片：`output\3D渲染样片.mp4`。
 
-**待做风格清单**（按用户规划）：3D渲染、形变动画、
+**待做风格清单**（按用户规划）：形变动画、
 贴纸风科普、拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
 复古synthwave、像素风、液态流动。
 
