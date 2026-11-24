@@ -1,0 +1,19 @@
+{
+  "id": "pixel",
+  "name": "像素风",
+  "en": "8-bit pixel art / retro game",
+  "desc": "8-bit 街机像素美学：有限调色板 + 方块像素 + 点阵精灵 + 硬边无抗锯齿 + CRT 扫描线 + 像素台阶阴影字。强调「红白机/街机厅/复古游戏」的怀旧像素感，与 synthwave 的渐变霓虹、赛博HUD 的仪表界面区分：这里一切都由方块像素格子构成，颜色克制、边缘锯齿、动作逐帧。适合讲游戏、科技怀旧、编程、复古文化类内容。",
+  "bg": "#151230",
+  "ink": "#f8f8f8",
+  "accent": "#ffd23f",
+  "font": "等宽像素体（monospace + 硬边台阶阴影）",
+  "themes": ["violet", "ice", "sunset", "amber"],
+  "visuals": [
+    {"name": "pixelGrid", "desc": "像素棋盘格地面 + 8-bit 底纹块，向上滚动（街机底纹）", "opts": {"cell": 48}},
+    {"name": "pixelSprite", "desc": "点阵精灵阵列：星星/爱心/蘑菇/金币逐帧弹出（游戏道具）", "opts": {"count": 7}},
+    {"name": "pixelBars", "desc": "8-bit 像素血条/能量槽 + 数值跳动（游戏HUD/数据）", "opts": {"values": [0.8,0.55,0.92,0.68]}},
+    {"name": "pixelRain", "desc": "像素方块雨/掉落方块，逐格下落（俄罗斯方块感）", "opts": {"count": 26}},
+    {"name": "pixelScene", "desc": "像素平台跳跃关卡：地面块+砖块+问号块+云+旗杆（游戏场景）", "opts": {}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"pixel\"；每页 visual.name 用上表组件；主题建议 violet/ice/sunset/amber。核心手法：canvas 关抗锯齿(imageSmoothingEnabled=false)、一切按整数像素格绘制、有限调色板(红#e84242/黄#ffd23f/青#3fd2e8/绿#4ec94e)；字幕用等宽体 + 硬边台阶阴影(多层 box-shadow 偏移)模拟像素描边，字号由 nth-child !important 覆盖成大小交替；出场起始态保持可读以免 seek 抓帧固化脏帧；所有随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}

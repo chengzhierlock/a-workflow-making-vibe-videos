@@ -1,0 +1,183 @@
+/* ============================================================
+ * 风格皮肤：像素风 (8-bit pixel art / retro game)
+ * 覆盖默认暗色科技皮肤，做成红白机/街机像素美学。
+ * 关键词：有限调色板、方块像素、点阵精灵、硬边无抗锯齿、CRT扫描线、台阶阴影字。
+ * 与 synthwave(渐变霓虹) / cyber(仪表HUD) 区分：这里一切都由方块像素格构成，
+ *   颜色克制、边缘锯齿、动作逐帧。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器 + !important 覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"Courier New","Lucida Console","PingFang SC","Microsoft YaHei",monospace !important;
+}
+.stage{background:#0a0818 !important}
+
+/* 屏幕：深蓝紫底，硬边（无圆角），CRT扫描线覆盖 */
+.screen{
+  background:linear-gradient(180deg,#1c1646 0%,#2a1a58 45%,#3a1f52 100%) !important;
+  color:#f8f8f8 !important;
+  border:4px solid #4a3a8a !important;
+  border-radius:0 !important;
+}
+.screen::before{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.20) 0px,rgba(0,0,0,.20) 2px,transparent 2px,transparent 4px) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+  z-index:2 !important;pointer-events:none !important;
+}
+/* 像素块不要模糊辉光 */
+.glow{display:none !important}
+.dot{border-radius:0 !important;box-shadow:none !important;opacity:.7 !important}
+
+/* 品牌栏：方块徽标 */
+.logo{
+  border-radius:0 !important;border-width:3px !important;border-color:#3fd2e8 !important;
+  background:#151230 !important;box-shadow:4px 4px 0 #e84242 !important;
+}
+.logo::after{
+  border-radius:0 !important;inset:6px !important;transform:none !important;
+  border-color:#ffd23f !important;background:#ffd23f !important;
+}
+.hd .name{
+  color:#ffd23f !important;font-weight:900 !important;letter-spacing:2px !important;
+  text-shadow:3px 3px 0 #b3222f !important;
+}
+.hd .tag{
+  border-radius:0 !important;border:2px solid #3fd2e8 !important;
+  background:#151230 !important;color:#3fd2e8 !important;font-weight:700 !important;
+  box-shadow:none !important;text-shadow:none !important;
+}
+
+/* 页眉：像素色签 */
+.eyebrow{
+  color:#3fd2e8 !important;
+  background:#151230 !important;
+  border:2px solid #3fd2e8 !important;
+  padding:6px 12px !important;
+  box-shadow:4px 4px 0 #1b6b99 !important;
+  text-shadow:none !important;
+  letter-spacing:3px;font-weight:900 !important;
+}
+
+/* 大标题：白字 + 硬台阶阴影，高亮 em 黄字硬阴影 */
+.big{
+  color:#fff !important;letter-spacing:1px !important;font-weight:900 !important;
+  text-shadow:3px 3px 0 #b3222f,6px 6px 0 #151230 !important;
+}
+.big em{
+  color:#ffd23f !important;-webkit-text-fill-color:#ffd23f !important;
+  background:none !important;
+  text-shadow:3px 3px 0 #b3222f,6px 6px 0 #151230 !important;
+}
+.sub{color:#d7d0f5 !important;text-shadow:2px 2px 0 #151230 !important;font-weight:700 !important}
+
+/* 内容卡片：像素方块 + 硬边台阶阴影 + 左侧色条 */
+.item,.stat{
+  background:#201a44 !important;
+  border:2px solid #6a5ab5 !important;
+  border-left:6px solid #ffd23f !important;
+  border-radius:0 !important;
+  box-shadow:5px 5px 0 #0c0a1f !important;
+  backdrop-filter:none !important;
+}
+.item:nth-child(3n+2){border-left-color:#3fd2e8 !important}
+.item:nth-child(3n+3){border-left-color:#e84242 !important}
+.item .n{
+  color:#ffd23f !important;-webkit-text-fill-color:#ffd23f !important;
+  text-shadow:2px 2px 0 #b3222f !important;font-weight:900 !important;
+}
+.item:nth-child(3n+2) .n{color:#3fd2e8 !important;-webkit-text-fill-color:#3fd2e8 !important;text-shadow:2px 2px 0 #1b6b99 !important}
+.item:nth-child(3n+3) .n{color:#ff6b6b !important;-webkit-text-fill-color:#ff6b6b !important;text-shadow:2px 2px 0 #7a1f1f !important}
+.item h3{color:#fff !important;font-weight:900 !important;text-shadow:2px 2px 0 #151230 !important}
+.item p{color:#c9c2ea !important;font-weight:700 !important}
+.stat .num{
+  color:#ffd23f !important;-webkit-text-fill-color:#ffd23f !important;background:none !important;
+  text-shadow:3px 3px 0 #b3222f !important;
+}
+.stat .lbl{color:#c9c2ea !important;font-weight:700 !important}
+
+/* 时间线：像素竖轴 + 方块节点 */
+.tl::before{background:#6a5ab5 !important;width:4px !important}
+.tl-item::before{
+  background:#ffd23f !important;border:2px solid #151230 !important;border-radius:0 !important;
+  transform:none !important;box-shadow:3px 3px 0 #0c0a1f !important;
+}
+.tl-date{color:#3fd2e8 !important;font-weight:900 !important;text-shadow:2px 2px 0 #151230 !important}
+.tl-text{color:#e6e0ff !important}
+
+/* ===== 像素风字幕：中部等宽方块大字，大小不一，弹出填充画面 =====
+   硬边台阶阴影(多层 box-shadow 偏移)模拟像素描边，方块底 + 无圆角。
+   字号由内联 style 硬编码，必须用 !important + nth-child 覆盖成大小交替。
+   出场起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/近全不透明，不用 blur / opacity:0 / 大 scale。 */
+.caption{top:25%;bottom:14%;gap:8px 16px !important}
+.kin{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  background:#151230 !important;
+  padding:2px 14px 6px !important;
+  border-radius:0 !important;
+  line-height:1.16 !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+  font-family:"Courier New","Lucida Console",monospace !important;
+  /* 硬台阶阴影：两层描边 + 一层投影，纯方块无模糊 */
+  text-shadow:
+    2px 0 0 #151230,-2px 0 0 #151230,0 2px 0 #151230,0 -2px 0 #151230,
+    3px 3px 0 #b3222f !important;
+  -webkit-text-stroke:0 !important;
+  box-shadow:5px 5px 0 #0c0a1f !important;
+}
+/* 大小不一：大—小—中—小—大—小—中 交替，撑满画面 */
+.caption .kin:nth-child(1){font-size:98px !important}
+.caption .kin:nth-child(2){font-size:56px !important}
+.caption .kin:nth-child(3){font-size:80px !important}
+.caption .kin:nth-child(4){font-size:54px !important}
+.caption .kin:nth-child(5){font-size:94px !important}
+.caption .kin:nth-child(6){font-size:52px !important}
+.caption .kin:nth-child(7){font-size:76px !important}
+/* 高亮块：黄底黑字 + 红色台阶阴影（最醒目，像游戏里的金币提示） */
+.kin.hl{
+  background:#ffd23f !important;
+  -webkit-text-fill-color:#151230 !important;color:#151230 !important;
+  border-radius:0 !important;
+  text-shadow:2px 2px 0 #ffb03f !important;
+  box-shadow:5px 5px 0 #b3222f !important;
+  padding:2px 16px 6px !important;
+}
+/* 小字块：青色字 + 深色台阶，与主字拉开层次 */
+.kin.sm{
+  -webkit-text-fill-color:#3fd2e8 !important;color:#3fd2e8 !important;
+  text-shadow:
+    2px 0 0 #151230,-2px 0 0 #151230,0 2px 0 #151230,0 -2px 0 #151230,
+    3px 3px 0 #1b6b99 !important;
+  background:#101a30 !important;
+}
+/* 长句块数多时整体收紧 */
+.caption:has(.kin:nth-child(6)) .kin{letter-spacing:0 !important}
+.caption:has(.kin:nth-child(7)) .kin:nth-child(1),
+.caption:has(.kin:nth-child(7)) .kin:nth-child(5){font-size:80px !important}
+/* 出场：微放大回正（起始态可读，避免脏帧） */
+.kin.on{animation:kinPixel .36s steps(4,end) both}
+@keyframes kinPixel{
+  0%{opacity:.9;transform:scale(1.05)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* 关注按钮：像素黄按钮 + 硬阴影 */
+.follow{
+  color:#151230 !important;
+  background:#ffd23f !important;
+  border-radius:0 !important;
+  box-shadow:5px 5px 0 #b3222f !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+
+/* 进度条：像素方块条 */
+.bar{background:#0c0a1f !important;border-radius:0 !important;height:8px !important}
+.bar i{background:#3fd2e8 !important;border-radius:0 !important;box-shadow:0 0 0 2px #151230 !important}
+.meta{color:#c9c2ea !important;font-weight:700 !important;text-shadow:1px 1px 0 #151230 !important}
+
+/* 视觉动画画布：像素化（关掉浏览器平滑） */
+.vfx{opacity:1}
+.vfx canvas{image-rendering:pixelated;image-rendering:crisp-edges}

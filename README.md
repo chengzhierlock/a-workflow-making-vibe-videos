@@ -173,7 +173,8 @@ styles\
   glass\             ← 弥散渐变玻璃拟态（已实现）
   bauhaus\           ← 包豪斯（已实现）
   synthwave\         ← 复古Synthwave（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯/synthwave皮肤、字体、卡片、字幕
+  pixel\             ← 像素风（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯/synthwave/像素皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -227,8 +228,12 @@ styles\
   霓虹辉光字，强调 80 年代夜晚公路 / 赛博浪漫氛围，与赛博朋克HUD的仪表雷达感区分。组件：
   `synthSun`（横纹落日）、`synthGrid`（透视网格地面）、`synthPalms`（棕榈剪影）、
   `synthMountains`（霓虹线框山脉）、`synthStars`（星空+光射线+流星）。样片：`output\复古synthwave样片.mp4`。
+- `pixel` 像素风：有限调色板 + 方块像素 + 点阵精灵 + 硬边无抗锯齿 + CRT扫描线 + 台阶阴影字，
+  红白机/街机复古感，与 synthwave 渐变霓虹、赛博HUD 仪表界面区分。组件：
+  `pixelGrid`（像素棋盘格底纹）、`pixelSprite`（点阵精灵弹出）、`pixelBars`（8-bit血条）、
+  `pixelRain`（掉落方块）、`pixelScene`（像素平台关卡）。样片：`output\像素风样片.mp4`。
 
-**待做风格清单**（按用户规划）：贴纸风科普、像素风、液态流动。
+**待做风格清单**（按用户规划）：贴纸风科普、液态流动。
 
 ## 配音音色（edge-tts 微软在线神经语音）
 
