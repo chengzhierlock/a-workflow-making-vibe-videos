@@ -1,0 +1,193 @@
+/* ============================================================
+ * 风格皮肤：弥散渐变玻璃拟态 (glass)
+ * 覆盖默认暗色科技皮肤，做成柔和弥散光斑 + 毛玻璃通透质感。
+ * 关键词：mesh gradient 光斑、frosted glass 磨砂面板、细白边、柔光投影、玻璃珠。
+ * 与线条动画(发光描边)、形变(深渐变流动)区分：这里全是柔光、通透、低对比的玻璃层。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif !important;
+}
+.stage{
+  background:#120b24 !important;
+  background-image:
+    radial-gradient(ellipse 60% 42% at 18% 14%, rgba(124,107,255,.55) 0%, transparent 70%),
+    radial-gradient(ellipse 54% 40% at 84% 26%, rgba(255,110,199,.45) 0%, transparent 70%),
+    radial-gradient(ellipse 62% 46% at 74% 80%, rgba(77,157,255,.42) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 38% at 22% 76%, rgba(94,234,212,.35) 0%, transparent 72%),
+    linear-gradient(160deg,#160d2e 0%,#0b0a1e 55%,#1a0f2c 100%) !important;
+}
+.screen{
+  background:linear-gradient(150deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.05) 48%,rgba(255,255,255,.1) 100%) !important;
+  color:#f4f0ff !important;
+  border:1.5px solid rgba(255,255,255,.34) !important;
+  border-radius:32px !important;
+  box-shadow:0 30px 90px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.4),
+             inset 0 0 60px rgba(180,140,255,.1) !important;
+  backdrop-filter:blur(28px) saturate(1.4) !important;
+  -webkit-backdrop-filter:blur(28px) saturate(1.4) !important;
+}
+.screen::before{
+  background-image:
+    radial-gradient(circle at 26% 12%, rgba(255,255,255,.1) 0%, transparent 40%),
+    radial-gradient(circle at 78% 88%, rgba(255,255,255,.08) 0%, transparent 42%) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+}
+.glow{opacity:.55 !important}
+.dot{
+  border-radius:50% !important;transform:none !important;
+  background:radial-gradient(circle at 34% 30%,#fff,#b39cff 52%,#6a4fd0 100%) !important;
+  border:1px solid rgba(255,255,255,.5) !important;
+  box-shadow:0 0 18px rgba(179,156,255,.6) !important;
+}
+
+/* 品牌栏：玻璃徽标 */
+.logo{
+  border-radius:9px !important;border-width:1px !important;
+  border-color:rgba(255,255,255,.5) !important;
+  background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(179,156,255,.35)) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 4px 18px rgba(124,107,255,.35) !important;
+  backdrop-filter:blur(8px) !important;
+}
+.logo::after{border-radius:4px !important;transform:none !important;background:rgba(255,255,255,.9) !important;inset:22% !important}
+.hd .name{letter-spacing:2px;color:#fff !important;font-weight:800 !important}
+.hd .tag{
+  border-radius:999px !important;
+  border:1px solid rgba(255,255,255,.4) !important;
+  background:rgba(255,255,255,.14) !important;
+  color:#e8dcff !important;font-weight:700 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35) !important;
+  backdrop-filter:blur(8px) !important;
+}
+
+/* 页眉：磨砂光签 */
+.eyebrow{
+  color:#efe6ff !important;
+  background:rgba(255,255,255,.12) !important;
+  border:1px solid rgba(255,255,255,.36) !important;
+  border-radius:999px !important;
+  padding:6px 20px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 24px rgba(80,40,140,.25) !important;
+  backdrop-filter:blur(10px) !important;
+  text-shadow:0 1px 8px rgba(0,0,0,.3) !important;
+  letter-spacing:4px;font-weight:700 !important;
+}
+
+/* 大标题：柔和白字 + 玻璃荧光高亮 */
+.big{
+  color:#fff !important;letter-spacing:2px !important;
+  text-shadow:0 2px 24px rgba(0,0,0,.4),0 0 40px rgba(179,156,255,.35) !important;
+  font-weight:900 !important;
+}
+.big em{
+  color:#fff !important;
+  background:linear-gradient(110deg,#b39cff,#ff8ec7,#7cc4ff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 30px rgba(179,156,255,.5) !important;
+}
+.sub{color:#bdb2d4 !important;text-shadow:none !important;font-weight:500 !important}
+
+/* 内容卡片：毛玻璃面板 + 细白边 + 柔光 */
+.item,.stat{
+  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.06) 55%,rgba(255,255,255,.12)) !important;
+  border:1px solid rgba(255,255,255,.32) !important;
+  border-radius:20px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 16px 40px rgba(20,8,50,.35) !important;
+  backdrop-filter:blur(18px) saturate(1.3) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.3) !important;
+  transform:none;
+}
+.item .n{
+  color:#fff !important;-webkit-text-fill-color:#fff !important;
+  background:linear-gradient(135deg,#b39cff,#ff8ec7) !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  text-shadow:0 1px 8px rgba(80,20,120,.4) !important;font-weight:900 !important;
+  border-radius:10px !important;
+}
+.item h3{color:#fff !important;font-weight:800 !important}
+.item p{color:#c3b8d8 !important}
+.stat .num{
+  color:#fff !important;-webkit-text-fill-color:#fff !important;background:none !important;
+  text-shadow:0 0 30px rgba(179,156,255,.5) !important;
+}
+.stat .lbl{color:#c3b8d8 !important}
+
+/* 时间线：柔光轴 + 玻璃珠 */
+.tl::before{background:linear-gradient(180deg,rgba(179,156,255,.7),rgba(255,142,199,.6)) !important;width:3px !important}
+.tl-item::before{
+  background:radial-gradient(circle at 34% 30%,#fff,#b39cff 55%,#6a4fd0) !important;
+  border:1px solid rgba(255,255,255,.6) !important;border-radius:50% !important;transform:none !important;
+  box-shadow:0 0 18px rgba(179,156,255,.7) !important;
+}
+.tl-date{color:#efe6ff !important;font-weight:800 !important}
+.tl-text{color:#ded4f0 !important}
+
+/* ===== 玻璃质感字幕：不透明白玻璃片 + 深墨字（亮光斑铺上来仍清晰） =====
+   出场动画起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/半透明，不用 blur / opacity:0 / 大 scale。 */
+.caption{top:28%;bottom:13%;gap:10px 20px !important}
+.kin{
+  font-size:96px !important;
+  color:#241a3a !important;
+  background:rgba(255,255,255,.9) !important;
+  -webkit-text-fill-color:#241a3a !important;
+  -webkit-text-stroke:0 !important;
+  padding:2px 16px 6px !important;
+  border:1.5px solid rgba(255,255,255,.85) !important;
+  border-radius:18px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 30px rgba(20,8,50,.32),
+             0 0 40px rgba(179,156,255,.18) !important;
+  backdrop-filter:blur(12px) !important;
+  text-shadow:none !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+}
+/* 错落玻璃片：淡彩色玻璃 + 淡墨字 */
+.kin:nth-child(2){background:rgba(214,232,255,.9) !important;color:#16294a !important;-webkit-text-fill-color:#16294a !important}
+.kin:nth-child(3){background:rgba(255,255,255,.92) !important}
+.kin:nth-child(4){background:rgba(255,222,238,.9) !important;color:#4a1a34 !important;-webkit-text-fill-color:#4a1a34 !important}
+.kin:nth-child(5){background:rgba(226,214,255,.92) !important;color:#2c1a4a !important;-webkit-text-fill-color:#2c1a4a !important}
+.kin:nth-child(6){background:rgba(214,250,244,.9) !important;color:#123c34 !important;-webkit-text-fill-color:#123c34 !important}
+.kin:nth-child(7){background:rgba(255,255,255,.9) !important}
+/* 小字块：淡磨砂便签，不抢主字 */
+.kin.sm{font-size:56px !important;background:rgba(255,255,255,.7) !important;color:#4a3f5e !important;-webkit-text-fill-color:#4a3f5e !important;box-shadow:0 6px 18px rgba(20,8,50,.2) !important;font-weight:700 !important}
+/* 长句块数多时整体收紧 */
+.caption:has(.kin:nth-child(6)) .kin{font-size:70px !important;padding:2px 10px 4px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:52px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:42px !important}
+/* 出场：微放大回正（起始态可读，避免脏帧） */
+.kin.on{animation:kinGlass .34s cubic-bezier(.2,.9,.3,1) both}
+@keyframes kinGlass{
+  0%{opacity:.68;transform:scale(1.09)}
+  100%{opacity:1;transform:scale(1)}
+}
+/* 高亮块：彩色玻璃渐变 + 白字 + 柔光 */
+.kin.hl{
+  background:linear-gradient(115deg,#7c6bff 0%,#c864ff 50%,#ff8ec7 100%) !important;
+  -webkit-text-fill-color:#fff !important;color:#fff !important;
+  border-color:rgba(255,255,255,.7) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 30px rgba(90,30,140,.4),0 0 34px rgba(179,156,255,.5) !important;
+  padding:2px 14px 6px !important;
+}
+
+/* 关注按钮：磨砂胶囊 */
+.follow{
+  color:#fff !important;
+  background:linear-gradient(90deg,rgba(179,156,255,.4),rgba(255,142,199,.4)) !important;
+  border:1px solid rgba(255,255,255,.5) !important;
+  border-radius:999px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 8px 24px rgba(20,8,50,.3) !important;
+  backdrop-filter:blur(10px) !important;
+  text-shadow:none !important;font-weight:700 !important;
+}
+
+/* 进度条：玻璃细条 */
+.bar{background:rgba(255,255,255,.14) !important;border-radius:999px !important;height:7px !important;border:1px solid rgba(255,255,255,.2) !important}
+.bar i{background:linear-gradient(90deg,#b39cff,#ff8ec7,#7cc4ff) !important;border-radius:999px !important;box-shadow:0 0 16px rgba(179,156,255,.7) !important;border:none !important}
+.meta{color:#bdb2d4 !important;font-weight:600 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

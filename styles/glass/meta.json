@@ -1,0 +1,19 @@
+{
+  "id": "glass",
+  "name": "弥散渐变玻璃拟态",
+  "en": "mesh gradient / glassmorphism",
+  "desc": "柔和弥散光斑(mesh gradient)缓慢漂移叠加 + 毛玻璃通透质感：frosted glass 面板、细白边、内高光、柔光投影、玻璃球高光弧、玻璃珠网格。强调柔和、通透、轻盈。字幕用不透明白玻璃片+深墨字，亮光斑铺上来也清晰。与线条动画(发光描边)、形变(深渐变流动)区分：这里全是柔光低对比的玻璃层。适合讲产品、设计、质感、趋势的内容。",
+  "bg": "#120b24",
+  "ink": "#f4f0ff",
+  "accent": "#b39cff",
+  "font": "现代无衬线 + 玻璃白字",
+  "themes": ["violet", "ice", "rose", "steel"],
+  "visuals": [
+    {"name": "glassBlob", "desc": "弥散渐变光斑漂移叠加：大半径径向渐变screen混合（氛围底纹）", "opts": {"count": 5}},
+    {"name": "glassCard", "desc": "毛玻璃卡片层叠漂浮：细白边+内高光+流动高光斜带（面板/信息）", "opts": {"count": 4}},
+    {"name": "glassOrb", "desc": "玻璃球体：偏心渐变+边缘高光弧+底部反射（主体/亮点）", "opts": {"count": 3}},
+    {"name": "glassRing", "desc": "玻璃圆环：渐变描边+流动高光弧（聚焦/节奏）", "opts": {"count": 2}},
+    {"name": "glassMesh", "desc": "玻璃珠网格：半透明节点+柔和连线缓慢起伏（结构/关系）", "opts": {"cols": 7, "rows": 9}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"glass\"；每页 visual.name 用上表组件；主题建议 violet/ice/rose/steel，与弥散光斑最搭。核心 glassBlob 用多个大半径径向渐变 + screen 混合做 mesh gradient 光斑漂移；glassCard/glassOrb 靠半透明填充+细白边+内高光+柔光投影模拟 frosted glass。字幕用不透明(0.9)白玻璃片+深墨字，亮光斑铺到字幕区也不影响可读；出场动画起始态保持可读以免 seek 抓帧固化脏帧；所有随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}
