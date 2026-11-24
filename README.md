@@ -168,7 +168,8 @@ styles\
   cyber\             ← 赛博朋克HUD（已实现）
   huazi\             ← 综艺花字（已实现）
   render3d\          ← 3D渲染（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D皮肤、字体、卡片、字幕
+  morph\             ← 形变动画（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -202,9 +203,13 @@ styles\
   与等轴2.5D的纯色硬边三面区分开。组件：
   `renderSphere`（光照球体）、`renderCube`（透视旋转立方体）、`renderTorus`（3D环面点云）、
   `renderFloor`（透视网格地面）、`renderParticles`（3D粒子场）。样片：`output\3D渲染样片.mp4`。
+- `morph` 形变动画：深渐变底 + 无缝形状插值 + 有机流体 + 液态色带 + 柔和呼吸，
+  强调「一个形状平滑变成另一个」的过程感。组件：
+  `morphShape`（多形状无缝形变）、`morphBlob`（有机流体呼吸）、`morphRing`（环形波浪）、
+  `morphWave`（液态色带）、`morphGrid`（网格波纹扭曲）。样片：`output\形变动画样片.mp4`。
 
-**待做风格清单**（按用户规划）：形变动画、
-贴纸风科普、拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
+**待做风格清单**（按用户规划）：贴纸风科普、
+拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
 复古synthwave、像素风、液态流动。
 
 ## 配音音色（edge-tts 微软在线神经语音）

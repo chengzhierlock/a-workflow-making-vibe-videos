@@ -1,0 +1,19 @@
+{
+  "id": "morph",
+  "name": "形变动画",
+  "en": "morphing / shape-shifting",
+  "desc": "强调「一个形状平滑变成另一个」的过程感：圆↔方↔三角↔星无缝插值、有机流体呼吸、环形波浪扭曲、液态色带、网格变形。柔和渐变+圆润玻璃+缓慢流动，与3D渲染的硬朗光照、等轴的纯色硬边都不同。适合讲变化、演变、转化的内容。",
+  "bg": "#0a0618",
+  "ink": "#f4f0ff",
+  "accent": "#b07cff",
+  "font": "现代无衬线 + 流动渐变字",
+  "themes": ["violet", "ice", "rose", "steel"],
+  "visuals": [
+    {"name": "morphShape", "desc": "多形状无缝形变：圆↔方↔三角↔星↔六边形（演变/转化）", "opts": {"radius": 0.15, "duration": 2.2}},
+    {"name": "morphBlob", "desc": "有机流体呼吸变形：多频正弦扰动色块（流动/情绪）", "opts": {"count": 3, "radius": 0.13}},
+    {"name": "morphRing", "desc": "环形点列波浪形变：花环/齿轮渐变（循环/节奏）", "opts": {"layers": 3, "radius": 0.16}},
+    {"name": "morphWave", "desc": "液态色带层叠流动：彩色丝绸（氛围/过渡）", "opts": {"bands": 4}},
+    {"name": "morphGrid", "desc": "网格顶点波纹扭曲：空间变形（数据/场）", "opts": {"cols": 14, "rows": 10}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"morph\"；每页 visual.name 用上表组件；主题建议 violet/ice/rose/steel，与流动渐变最搭。核心 morphShape 靠采样顶点逐点插值实现无缝形变，采样点数固定（M=80）且各形状同起点，保证可插值。字幕流动渐变字 + 柔和液态厚度，出场动画起始态保持可读以免 seek 抓帧固化脏帧。"
+}

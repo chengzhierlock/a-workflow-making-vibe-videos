@@ -1,0 +1,192 @@
+/* ============================================================
+ * 风格皮肤：形变动画 (morph)
+ * 覆盖默认暗色科技皮肤，做成流动、柔韧、有机的形变质感。
+ * 关键词：流动渐变、圆润玻璃、液态高光、柔和呼吸、形变字。
+ * 与 3D渲染 的硬朗光照区分：这里全是曲线、渐变、缓慢流动。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif !important;
+}
+.stage{
+  background:#0a0618 !important;
+  background-image:
+    radial-gradient(ellipse at 22% 18%, rgba(0,212,255,.22) 0%, transparent 48%),
+    radial-gradient(ellipse at 82% 72%, rgba(176,124,255,.24) 0%, transparent 52%),
+    radial-gradient(ellipse at 50% 95%, rgba(255,95,162,.16) 0%, transparent 55%) !important;
+}
+.screen{
+  background:linear-gradient(150deg,rgba(38,24,74,.7) 0%,rgba(14,16,44,.82) 50%,rgba(44,18,60,.72) 100%) !important;
+  color:#f4f0ff !important;
+  border:2px solid rgba(190,160,255,.3) !important;
+  border-radius:34px !important;
+  box-shadow:0 30px 90px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.16),
+             inset 0 0 70px rgba(176,124,255,.1) !important;
+  backdrop-filter:blur(16px) !important;
+}
+.screen::before{
+  background-image:
+    radial-gradient(circle at 28% 10%, rgba(0,212,255,.16) 0%, transparent 44%),
+    radial-gradient(circle at 76% 86%, rgba(255,95,162,.14) 0%, transparent 48%) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+}
+.glow{opacity:.85 !important}
+.dot{
+  border-radius:50% !important;transform:none !important;
+  background:radial-gradient(circle at 34% 30%,#fff,#b07cff 48%,#4a2a9e 100%) !important;
+  border:none !important;box-shadow:0 0 18px rgba(176,124,255,.7) !important;
+}
+
+/* 品牌栏：液态球徽标 */
+.logo{
+  border-radius:50% !important;border-width:2px !important;
+  border-color:rgba(255,255,255,.42) !important;
+  background:conic-gradient(from 0deg,#00d4ff,#b07cff,#ff5fa2,#00d4ff) !important;
+  box-shadow:inset -4px -6px 12px rgba(0,0,0,.3),0 0 22px rgba(176,124,255,.6) !important;
+}
+.logo::after{border-radius:50% !important;transform:none !important;background:rgba(255,255,255,.9) !important;inset:18% !important}
+.hd .name{letter-spacing:2px;color:#f4f0ff !important;font-weight:800 !important}
+.hd .tag{
+  border-radius:999px !important;
+  border:1px solid rgba(190,160,255,.4) !important;
+  background:linear-gradient(90deg,rgba(0,212,255,.2),rgba(255,95,162,.2)) !important;
+  color:#d9caff !important;font-weight:700 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2) !important;
+}
+
+/* 页眉：流动光签 */
+.eyebrow{
+  color:#c9b6ff !important;
+  background:linear-gradient(90deg,rgba(0,212,255,.12),rgba(255,95,162,.12)) !important;
+  border:1px solid rgba(176,124,255,.36) !important;
+  border-radius:999px !important;
+  padding:6px 20px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 24px rgba(176,124,255,.14) !important;
+  text-shadow:0 0 18px rgba(176,124,255,.5) !important;
+  letter-spacing:4px;font-weight:700 !important;
+}
+
+/* 大标题：流动渐变字 */
+.big{
+  color:#fff !important;letter-spacing:2px !important;
+  background:linear-gradient(100deg,#00d4ff 0%,#b07cff 40%,#ff5fa2 70%,#ffb84d 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 46px rgba(176,124,255,.3) !important;
+  font-weight:900 !important;
+}
+.big em{
+  background:linear-gradient(100deg,#fff,#00d4ff,#fff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;-webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 34px rgba(0,212,255,.5) !important;
+}
+.sub{color:#a99fc4 !important;text-shadow:none !important;font-weight:500 !important}
+
+/* 内容卡片：柔润玻璃 + 液态边光 */
+.item,.stat{
+  background:linear-gradient(150deg,rgba(176,124,255,.14),rgba(0,212,255,.06) 55%,rgba(255,95,162,.1)) !important;
+  border:1px solid rgba(190,160,255,.28) !important;
+  border-radius:24px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 16px 40px rgba(0,0,0,.32),
+             0 0 0 1px rgba(0,0,0,.18) !important;
+  backdrop-filter:blur(10px) !important;
+  transform:none;
+}
+.item .n{
+  background:linear-gradient(135deg,#00d4ff,#b07cff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;-webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 24px rgba(0,212,255,.4) !important;font-weight:900 !important;
+}
+.item h3{color:#f4f0ff !important;font-weight:800 !important}
+.item p{color:#a99fc4 !important}
+.stat .num{
+  background:linear-gradient(120deg,#fff,#b07cff 55%,#00d4ff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;-webkit-text-fill-color:transparent !important;
+  text-shadow:0 0 30px rgba(176,124,255,.35) !important;
+}
+.stat .lbl{color:#a99fc4 !important}
+
+/* 时间线：流动节点 */
+.tl::before{background:linear-gradient(180deg,rgba(0,212,255,.7),rgba(255,95,162,.6)) !important;width:3px !important}
+.tl-item::before{
+  background:radial-gradient(circle at 34% 30%,#fff,#b07cff 55%,#4a2a9e) !important;
+  border:2px solid rgba(255,255,255,.5) !important;
+  border-radius:50% !important;transform:none !important;
+  box-shadow:0 0 18px rgba(176,124,255,.8) !important;
+}
+.tl-date{color:#c9b6ff !important;font-weight:800 !important}
+.tl-text{color:#e8e0ff !important}
+
+/* ===== 形变立体字幕：流动渐变填充 + 柔和液态厚度 =====
+   出场动画起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/半透明，不用 blur / opacity:0 / 大 scale。 */
+/* 柔和暗衬：本风格有亮色波浪/色块组件会铺到字幕区，加一层渐变暗底保证字始终可读 */
+.caption{
+  top:28%;bottom:13%;gap:11px 22px !important;
+  background:radial-gradient(ellipse at 50% 50%, rgba(10,6,28,.72) 0%, rgba(10,6,28,.42) 58%, transparent 82%) !important;
+  border-radius:50% !important;
+}
+.kin{
+  font-size:96px !important;
+  color:#ffffff !important;
+  background:linear-gradient(120deg,#ffffff 0%,#d9caff 55%,#a9e9ff 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  -webkit-text-stroke:3px rgba(26,12,62,.9) !important;
+  paint-order:stroke fill !important;
+  text-shadow:
+    0 3px 0 rgba(38,18,86,.9), 0 6px 0 rgba(46,26,110,.78),
+    0 10px 20px rgba(0,0,0,.6), 0 0 34px rgba(176,124,255,.3) !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+}
+/* 错落字号 + 冷紫/冰蓝副块 */
+.kin:nth-child(2){font-size:64px !important;background:linear-gradient(120deg,#a9e9ff,#b07cff) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.kin:nth-child(3){font-size:92px !important;background:linear-gradient(120deg,#fff,#d9caff) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.kin:nth-child(4){font-size:60px !important;background:linear-gradient(120deg,#ffb3d9,#b07cff) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.kin:nth-child(5){font-size:104px !important;background:linear-gradient(120deg,#fff,#a9e9ff) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.kin:nth-child(6){font-size:66px !important;background:linear-gradient(120deg,#c9b6ff,#00d4ff) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.kin:nth-child(7){font-size:82px !important;background:linear-gradient(120deg,#fff,#ffb3d9) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.kin.sm{font-size:56px !important;opacity:1 !important;-webkit-text-fill-color:#9f92c4 !important;background:none !important;-webkit-text-stroke:0 !important;font-weight:700 !important}
+/* 长句块数多时整体收紧 */
+.caption:has(.kin:nth-child(6)) .kin{font-size:72px !important;-webkit-text-stroke-width:1px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:52px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:44px !important}
+/* 出场：柔和上浮 + 微放大（起始态可读，避免脏帧） */
+.kin.on{animation:kinMorph .34s cubic-bezier(.2,.9,.3,1) forwards}
+@keyframes kinMorph{
+  0%{opacity:.6;transform:translateY(9px) scale(1.1)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+/* 高亮块：青→紫→粉流动渐变 + 深色描边 */
+.kin.hl{
+  background:linear-gradient(115deg,#00d4ff 0%,#b07cff 50%,#ff5fa2 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;color:transparent !important;
+  -webkit-text-stroke:4px #1a0f3c !important;
+  text-shadow:0 5px 0 #1a0f3c,0 9px 0 #3a1a6e,0 14px 26px rgba(0,0,0,.6),0 0 30px rgba(176,124,255,.5) !important;
+  padding:0 8px !important;
+}
+
+/* 关注按钮：玻璃胶囊 */
+.follow{
+  color:#f4f0ff !important;
+  background:linear-gradient(90deg,rgba(0,212,255,.28),rgba(255,95,162,.28)) !important;
+  border:1px solid rgba(190,160,255,.45) !important;
+  border-radius:999px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 8px 24px rgba(0,0,0,.35) !important;
+  text-shadow:none !important;font-weight:700 !important;
+}
+
+/* 进度条：青紫粉流动条 */
+.bar{background:rgba(190,160,255,.16) !important;border-radius:999px !important;height:8px !important}
+.bar i{background:linear-gradient(90deg,#00d4ff,#b07cff,#ff5fa2) !important;border-radius:999px !important;box-shadow:0 0 16px rgba(176,124,255,.7) !important;border:none !important}
+.meta{color:#9f92c4 !important;font-weight:600 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}
