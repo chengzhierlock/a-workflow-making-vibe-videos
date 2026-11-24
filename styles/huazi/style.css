@@ -1,0 +1,167 @@
+/* ============================================================
+ * 风格皮肤：综艺花字 (huazi)
+ * 覆盖默认暗色科技皮肤，改成综艺节目那种热闹夸张的花字风。
+ * 关键词：亮色底、彩色粗描边字、立体厚度、倾斜弹出、爆炸高亮。
+ * 字幕本身是主角——这是与其他风格最大的区别。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif !important;
+}
+.stage{
+  background:#fff6e0 !important;
+  background-image:radial-gradient(circle at 20% 15%, #fff0a8 0%, transparent 45%),
+                   radial-gradient(circle at 82% 80%, #ffc4e0 0%, transparent 48%) !important;
+}
+.screen{
+  background:linear-gradient(155deg,#fffaf0 0%,#ffeedd 48%,#ffe0ec 100%) !important;
+  color:#3a1236 !important;
+  border:5px solid #3a1236 !important;
+  border-radius:30px !important;
+  box-shadow:12px 14px 0 rgba(58,18,54,.22) !important;
+}
+/* 波点底纹 */
+.screen::before{
+  background-image:radial-gradient(rgba(255,77,148,.18) 3px, transparent 3px) !important;
+  background-size:44px 44px !important;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%) !important;
+  mask-image:linear-gradient(180deg,#000,transparent 85%) !important;
+}
+.glow{opacity:0 !important}
+.dot{border-radius:50% !important;transform:none !important;border:3px solid #3a1236 !important}
+
+/* 品牌栏：综艺圆角徽标 */
+.logo{
+  border-radius:50% !important;border-width:4px !important;
+  background:#ff4d94 !important;border-color:#3a1236 !important;
+}
+.logo::after{border-radius:50% !important;transform:none !important;background:#ffe234 !important}
+.hd .name{letter-spacing:2px;color:#3a1236 !important;font-weight:900 !important}
+.hd .tag{
+  border-radius:999px !important;
+  border:3px solid #3a1236 !important;
+  background:#ffe234 !important;
+  color:#3a1236 !important;font-weight:900 !important;
+  box-shadow:3px 3px 0 #3a1236 !important;
+}
+
+/* 页眉：综艺色签 */
+.eyebrow{
+  color:#3a1236 !important;
+  background:#00e5ff !important;
+  border:3px solid #3a1236 !important;
+  border-radius:12px !important;
+  padding:6px 16px !important;
+  box-shadow:4px 4px 0 #3a1236 !important;
+  text-shadow:none !important;
+  letter-spacing:3px;font-weight:900 !important;
+}
+
+/* 大标题：综艺彩色立体字 */
+.big{
+  color:#fff !important;
+  letter-spacing:1px !important;
+  -webkit-text-stroke:5px #3a1236 !important;
+  paint-order:stroke fill !important;
+  text-shadow:0 5px 0 #3a1236, 0 10px 0 rgba(58,18,54,.2) !important;
+  font-weight:900 !important;
+}
+.big em{
+  background:linear-gradient(180deg,#ffe234,#ff8c1a) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-stroke:5px #3a1236 !important;
+  color:transparent !important;
+  text-shadow:none !important;
+}
+.sub{color:#7a3a5c !important;text-shadow:none !important;font-weight:700 !important}
+
+/* 内容卡片：综艺白卡片 + 粗描边 + 硬阴影 */
+.item,.stat{
+  background:#fff !important;
+  border:4px solid #3a1236 !important;
+  border-radius:20px !important;
+  box-shadow:7px 8px 0 #ff4d94, 7px 8px 0 3px #3a1236 !important;
+  transform:none;
+}
+.item .n{color:#ff4d94 !important;text-shadow:none;font-weight:900 !important}
+.item h3{color:#3a1236 !important;font-weight:900 !important}
+.item p{color:#7a3a5c !important}
+.stat .num{
+  background:linear-gradient(180deg,#ff4d94,#b967ff) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  color:transparent !important;
+  -webkit-text-stroke:3px #3a1236 !important;
+  text-shadow:none !important;
+}
+.stat .lbl{color:#7a3a5c !important}
+
+/* 时间线：综艺节点 */
+.tl::before{background:#3a1236 !important;width:5px !important}
+.tl-item::before{
+  background:#ffe234 !important;border:4px solid #3a1236 !important;
+  border-radius:50% !important;transform:none !important;
+  box-shadow:3px 3px 0 #ff4d94 !important;
+}
+.tl-date{color:#ff4d94 !important;font-weight:900 !important}
+.tl-text{color:#3a1236 !important}
+
+/* ===== 综艺花字大字字幕：粗描边 + 立体厚度 + 彩色 + 倾斜弹出 ===== */
+.caption{top:27%;bottom:13%;gap:12px 22px !important}
+.kin{
+  font-size:100px !important;
+  color:#fff !important;
+  -webkit-text-stroke:7px #3a1236 !important;
+  paint-order:stroke fill !important;
+  text-shadow:0 7px 0 #3a1236, 0 13px 0 rgba(58,18,54,.22) !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+}
+/* 错落字号 + 轻微倾斜，营造综艺手写感 */
+.kin:nth-child(2){font-size:64px !important;color:#ffe234 !important}
+.kin:nth-child(3){font-size:94px !important;color:#fff !important}
+.kin:nth-child(4){font-size:58px !important;color:#00e5ff !important}
+.kin:nth-child(5){font-size:108px !important;color:#fff !important}
+.kin:nth-child(6){font-size:68px !important;color:#ff8c1a !important}
+.kin:nth-child(7){font-size:82px !important;color:#fff !important}
+.kin.sm{font-size:56px !important;opacity:1 !important;color:#b967ff !important;font-weight:800 !important}
+/* 长句块数多时整体收紧 */
+.caption:has(.kin:nth-child(6)) .kin{font-size:74px !important;-webkit-text-stroke-width:5px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:54px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:46px !important}
+/* 弹出动画：综艺「砸」进来——弹性缩放 + 旋转回正 */
+.kin.on{animation:kinHuazi .5s cubic-bezier(.2,1.6,.35,1) forwards}
+@keyframes kinHuazi{
+  0%{opacity:0;transform:scale(2.1) rotate(-14deg)}
+  55%{opacity:1;transform:scale(.9) rotate(5deg)}
+  75%{transform:scale(1.05) rotate(-2deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+/* 高亮块：爆炸黄字 + 超粗描边 + 品红立体影 */
+.kin.hl{
+  background:none !important;
+  color:#ffe234 !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  -webkit-text-stroke:8px #3a1236 !important;
+  text-shadow:0 8px 0 #3a1236, 0 14px 0 #ff4d94, 0 20px 30px rgba(58,18,54,.35) !important;
+  padding:0 6px !important;
+}
+
+/* 关注按钮：综艺胶囊 */
+.follow{
+  color:#fff !important;
+  background:#ff4d94 !important;
+  border:4px solid #3a1236 !important;
+  border-radius:999px !important;
+  box-shadow:5px 6px 0 #3a1236 !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+
+/* 进度条：综艺彩色条 */
+.bar{background:rgba(58,18,54,.16) !important;border-radius:999px !important;height:9px !important}
+.bar i{background:linear-gradient(90deg,#ff4d94,#ffe234,#00e5ff) !important;border-radius:999px !important;box-shadow:none !important;border:2px solid #3a1236}
+.meta{color:#7a3a5c !important;font-weight:800 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

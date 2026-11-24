@@ -1,0 +1,19 @@
+{
+  "id": "huazi",
+  "name": "综艺花字",
+  "en": "variety-show caption FX",
+  "desc": "综艺节目那种热闹夸张的花字风：亮色底、彩色粗描边立体字、爆炸放射线、闪烁星星、手绘箭头、对话气泡、彩带。字幕本身是主角，适合吐槽、观点、轻松娱乐类内容。",
+  "bg": "#fff6e0",
+  "ink": "#3a1236",
+  "accent": "#ff4d94",
+  "font": "圆润综艺粗体",
+  "themes": ["sunset", "amber", "rose"],
+  "visuals": [
+    {"name": "huaziBurst", "desc": "爆炸放射线 + 星芒（强调/爆发）", "opts": {"rays": 16, "radius": 0.20}},
+    {"name": "huaziStars", "desc": "四角星/十字星光闪烁点缀（亮点/闪耀）", "opts": {"count": 12}},
+    {"name": "huaziArrows", "desc": "手绘粗箭头指向（引导/指示）", "opts": {"count": 3}},
+    {"name": "huaziSpeech", "desc": "彩色对话框气泡弹出（吐槽/旁白）", "opts": {"count": 3}},
+    {"name": "huaziConfetti", "desc": "彩带纸屑飘落（热闹/庆祝）", "opts": {"count": 40}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"huazi\"；每页 visual.name 用上表组件；综艺花字靠 CSS 粗描边立体字撑视觉，背景为亮色暖底，字幕高亮块为爆炸黄字。"
+}

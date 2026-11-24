@@ -166,7 +166,8 @@ styles\
   flat\              ← 扁平矢量（已实现）
   line\              ← 线条动画（已实现）
   cyber\             ← 赛博朋克HUD（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博皮肤、字体、卡片、字幕
+  huazi\             ← 综艺花字（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -193,10 +194,13 @@ styles\
 - `cyber` 赛博朋克HUD：深色底 + 霓虹青品红 + 扫描线 + 故障抖动 + 切角面板。组件：
   `hudGrid`（透视网格）、`hudRadar`（雷达扫描）、`hudBars`（数据条）、
   `hudTarget`（锁定准星）、`hudWave`（示波器+字符雨）。样片：`output\赛博朋克HUD样片.mp4`。
+- `huazi` 综艺花字：亮色暖底 + 彩色粗描边立体字 + 倾斜弹出 + 爆炸高亮，字幕即主角。组件：
+  `huaziBurst`（爆炸放射线）、`huaziStars`（闪烁星星）、`huaziArrows`（手绘箭头）、
+  `huaziSpeech`（对话气泡）、`huaziConfetti`（彩带纸屑）。样片：`output\综艺花字样片.mp4`。
 
 **待做风格清单**（按用户规划）：3D渲染、形变动画、
 贴纸风科普、拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
-复古synthwave、像素风、液态流动、综艺花字。
+复古synthwave、像素风、液态流动。
 
 ## 配音音色（edge-tts 微软在线神经语音）
 
