@@ -48,7 +48,20 @@ def probe_duration(path: str) -> float:
 
 
 async def synth_one(text, voice, rate, volume, out_path):
-    await edge_tts.Communicate(text, voice, rate=rate, volume=volume).save(out_path)
+    """单句配音，带重试：edge-tts websocket 常间歇性 NoAudioReceived，重试可显著提高成功率。"""
+    import time
+    last_err = None
+    for attempt in range(4):
+        try:
+            await edge_tts.Communicate(text, voice, rate=rate, volume=volume).save(out_path)
+            if os.path.getsize(out_path) > 0:
+                return
+            last_err = RuntimeError("空音频文件")
+        except Exception as e:
+            last_err = e
+        if attempt < 3:
+            time.sleep(0.8 * (attempt + 1))  # 退避：0.8/1.6/2.4s
+    raise last_err
 
 
 def build_audio(content: dict, work_dir: str):
