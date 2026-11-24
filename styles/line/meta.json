@@ -1,0 +1,19 @@
+{
+  "id": "line",
+  "name": "线条动画",
+  "en": "line animation",
+  "desc": "深色底 + 发光描边的线条动画风：描边一笔一笔生长、光点沿线流动、形状相互形变。强调「线被画出来」的过程感，适合讲解流程、数据趋势、概念演变。",
+  "bg": "#050912",
+  "ink": "#eaf6ff",
+  "accent": "#5fe0ff",
+  "font": "发光描边无衬线体",
+  "themes": ["ice", "violet", "rose", "steel"],
+  "visuals": [
+    {"name": "lineDraw", "desc": "一笔画出几何图形（圆/方/三角/星/六边形），笔尖发光", "opts": {"radius": 0.17}},
+    {"name": "lineFlow", "desc": "多条贝塞尔曲线 + 沿线流动光点（流程/数据流向）", "opts": {"lines": 5}},
+    {"name": "lineGraph", "desc": "坐标轴 + 折线逐段画出 + 数据点（数据趋势）", "opts": {"values": [0.35,0.62,0.48,0.85,0.70,0.95]}},
+    {"name": "lineMorph", "desc": "形状顶点插值形变，一个形变成另一个（演变/变换）", "opts": {}},
+    {"name": "lineWave", "desc": "多条正弦波叠加流动（底纹/情绪/声音）", "opts": {"lines": 7}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"line\"；每页 visual.name 用上表组件；theme 优先 ice/violet/rose/steel；深色底下字幕高亮块为空心描边字，配发光效果。"
+}

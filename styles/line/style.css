@@ -1,0 +1,158 @@
+/* ============================================================
+ * 风格皮肤：线条动画 (line)
+ * 覆盖默认暗色科技皮肤，改成深色底 + 发光描边的线条动画风。
+ * 关键词：细线框、发光描边、描边生长、空心字、深色底。
+ * 与手绘纸感/等轴立体/扁平色块区分：这里是「线在被画出来」。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif !important;
+}
+.stage{
+  background:#050912 !important;
+  background-image:radial-gradient(circle at 50% 40%, #0d1b32 0%, #050912 72%) !important;
+}
+.screen{
+  background:#060d1c !important;
+  color:#eaf6ff !important;
+  border:2px solid rgba(95,224,255,.35) !important;
+  box-shadow:0 0 0 1px rgba(95,224,255,.08), 0 0 60px rgba(0,180,255,.10) !important;
+}
+/* 细网格底纹，衬托线条 */
+.screen::before{
+  background-image:
+    linear-gradient(rgba(95,200,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95,200,255,.045) 1px, transparent 1px) !important;
+  background-size:44px 44px !important;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000,transparent 80%) !important;
+  mask-image:radial-gradient(circle at 50% 50%,#000,transparent 80%) !important;
+}
+.glow{opacity:.22 !important}
+.dot{border-radius:50% !important;transform:none !important}
+
+/* 品牌栏：线框徽标 */
+.logo{
+  border-radius:6px !important;border-width:2px !important;
+  background:transparent !important;border-color:#5fe0ff !important;
+  box-shadow:0 0 12px rgba(95,224,255,.5) inset !important;
+}
+.logo::after{border-radius:50% !important;transform:none !important;background:#5fe0ff !important}
+.hd .name{letter-spacing:4px;color:#dff3ff !important;font-weight:700 !important}
+.hd .tag{
+  border-radius:999px !important;
+  border:1px solid rgba(95,224,255,.6) !important;
+  background:rgba(95,224,255,.08) !important;
+  color:#8fe8ff !important;
+  box-shadow:0 0 14px rgba(95,224,255,.18) !important;
+}
+
+/* 页眉：细线发光标签 */
+.eyebrow{
+  color:#8fe8ff !important;
+  border-left:3px solid #5fe0ff !important;
+  padding-left:14px !important;
+  border-bottom:none !important;
+  text-shadow:0 0 14px rgba(95,224,255,.6) !important;
+  letter-spacing:4px;
+}
+
+/* 大标题：描边发光字 */
+.big{
+  color:#eaf6ff !important;
+  letter-spacing:2px !important;
+  text-shadow:0 0 18px rgba(95,224,255,.45), 0 0 42px rgba(95,224,255,.2) !important;
+  font-weight:800 !important;
+}
+.big em{
+  color:transparent !important;
+  -webkit-text-stroke:2px #5fe0ff !important;
+  text-shadow:0 0 20px rgba(95,224,255,.65) !important;
+}
+.sub{color:#9fb8d8 !important;text-shadow:none !important}
+
+/* 内容卡片：透明线框，发光描边 */
+.item,.stat{
+  background:rgba(10,24,46,.42) !important;
+  backdrop-filter:blur(4px) !important;
+  border:1px solid rgba(95,224,255,.38) !important;
+  border-left:3px solid #5fe0ff !important;
+  border-radius:10px !important;
+  box-shadow:0 0 20px rgba(95,224,255,.08), inset 0 0 18px rgba(95,224,255,.04) !important;
+  transform:none;
+}
+.item .n{color:#5fe0ff !important;text-shadow:0 0 12px rgba(95,224,255,.6)}
+.item h3{color:#eaf6ff !important}
+.item p{color:#9fb8d8 !important}
+.stat .num{
+  color:transparent !important;
+  -webkit-text-stroke:2px #5fe0ff !important;
+  text-shadow:0 0 22px rgba(95,224,255,.5) !important;
+}
+.stat .lbl{color:#9fb8d8 !important}
+
+/* 时间线：发光节点 */
+.tl::before{background:linear-gradient(#5fe0ff,#2a6fd8) !important;width:2px !important}
+.tl-item::before{
+  background:#060d1c !important;border:2px solid #5fe0ff !important;
+  border-radius:50% !important;transform:none !important;
+  box-shadow:0 0 14px rgba(95,224,255,.7) !important;
+}
+.tl-date{color:#5fe0ff !important}
+.tl-text{color:#eaf6ff !important}
+
+/* ===== 线条动画大字字幕：发光描边字 + 空心高亮 ===== */
+.caption{top:29%;bottom:13%;gap:14px 24px !important}
+.kin{
+  font-size:100px !important;
+  color:#eaf6ff !important;
+  text-shadow:0 0 18px rgba(95,224,255,.5), 0 0 46px rgba(95,224,255,.22) !important;
+  letter-spacing:3px !important;
+  font-weight:800 !important;
+}
+/* 错落字号（覆盖 inline） */
+.kin:nth-child(2){font-size:64px !important}
+.kin:nth-child(3){font-size:92px !important}
+.kin:nth-child(4){font-size:58px !important}
+.kin:nth-child(5){font-size:108px !important}
+.kin:nth-child(6){font-size:68px !important}
+.kin:nth-child(7){font-size:82px !important}
+.kin.sm{font-size:56px !important;opacity:.82 !important;color:#8fe8ff !important;font-weight:600 !important}
+/* 长句块数多时整体收紧，避免挤成一团 */
+.caption:has(.kin:nth-child(6)) .kin{font-size:74px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:54px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:46px !important}
+/* 弹出动画：描边「写上去」——从模糊到清晰 */
+.kin.on{animation:kinLine .5s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes kinLine{
+  0%{opacity:0;filter:blur(10px);transform:translateY(18px) scale(.96);letter-spacing:14px}
+  60%{opacity:1;filter:blur(0);letter-spacing:1px}
+  100%{opacity:1;filter:blur(0);transform:none;letter-spacing:3px}
+}
+/* 高亮块：空心描边字 + 发光，线条动画的标志性观感 */
+.kin.hl{
+  color:transparent !important;
+  -webkit-text-stroke:3px #5fe0ff !important;
+  text-shadow:0 0 22px rgba(95,224,255,.8), 0 0 60px rgba(95,224,255,.35) !important;
+  background:none !important;
+  padding:0 !important;border:none !important;box-shadow:none !important;
+}
+
+/* 关注按钮：线框胶囊 */
+.follow{
+  color:#8fe8ff !important;
+  background:rgba(95,224,255,.08) !important;
+  border:2px solid #5fe0ff !important;
+  border-radius:999px !important;
+  box-shadow:0 0 18px rgba(95,224,255,.25) !important;
+  text-shadow:none !important;
+}
+
+/* 进度条：发光细线 */
+.bar{background:rgba(95,224,255,.16) !important;border-radius:999px !important;height:4px !important}
+.bar i{background:#5fe0ff !important;border-radius:999px !important;box-shadow:0 0 12px rgba(95,224,255,.9)}
+.meta{color:#7f9cc4 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}
