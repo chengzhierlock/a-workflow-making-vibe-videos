@@ -1,0 +1,171 @@
+/* ============================================================
+ * 风格皮肤：拼贴剪纸 (collage)
+ * 覆盖默认暗色科技皮肤，做成手工剪贴、牛皮纸拼贴本质感。
+ * 关键词：牛皮纸暖底、撞色纸片、白模切纸片字幕、撕边、胶带、图钉。
+ * 与综艺花字(也是亮底)区分：综艺是粗描边立体字砸屏，这里是纸片层层贴上去的手工感。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif !important;
+}
+.stage{
+  background:#e7dcc3 !important;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120,92,52,.045) 0px, rgba(120,92,52,.045) 1px, transparent 1px, transparent 4px),
+    radial-gradient(ellipse at 20% 12%, rgba(255,252,238,.85) 0%, transparent 55%),
+    radial-gradient(ellipse at 84% 84%, rgba(150,112,60,.2) 0%, transparent 55%) !important;
+}
+.screen{
+  background:#fbf5e6 !important;
+  color:#2a211c !important;
+  border:3px solid #2a211c !important;
+  border-radius:10px !important;
+  box-shadow:12px 14px 0 rgba(42,33,28,.14), 0 30px 60px rgba(90,60,25,.28) !important;
+}
+.screen::before{
+  background-image:repeating-linear-gradient(45deg,rgba(120,92,52,.03) 0 6px,transparent 6px 12px) !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+}
+.glow{opacity:.35 !important}
+.dot{
+  border-radius:2px !important;transform:rotate(12deg) !important;
+  background:#ee6c9a !important;border:2px solid #2a211c !important;
+  box-shadow:3px 3px 0 rgba(42,33,28,.35) !important;
+}
+
+/* 品牌栏：方形图钉徽标 */
+.logo{
+  border-radius:6px !important;border-width:3px !important;border-color:#2a211c !important;
+  background:#e8453c !important;
+  box-shadow:4px 4px 0 rgba(42,33,28,.35) !important;
+}
+.logo::after{background:#fff3d8 !important;inset:20% !important;border-radius:2px !important;transform:rotate(-10deg) !important}
+.hd .name{letter-spacing:2px;color:#2a211c !important;font-weight:900 !important}
+.hd .tag{
+  border-radius:2px !important;border:2px solid #2a211c !important;
+  background:#f5c518 !important;color:#2a211c !important;font-weight:800 !important;
+  box-shadow:3px 3px 0 rgba(42,33,28,.4) !important;transform:rotate(-2deg) !important;
+}
+
+/* 页眉：撕纸标签 */
+.eyebrow{
+  color:#2a211c !important;
+  background:#ffd94a !important;
+  border:2px solid #2a211c !important;
+  border-radius:2px !important;
+  padding:6px 18px !important;
+  box-shadow:4px 4px 0 rgba(42,33,28,.35) !important;
+  transform:rotate(-1.2deg) !important;
+  text-shadow:none !important;
+  letter-spacing:3px;font-weight:800 !important;
+}
+
+/* 大标题：深墨字 + 荧光笔高亮 */
+.big{
+  color:#2a211c !important;letter-spacing:2px !important;
+  text-shadow:2px 2px 0 rgba(255,255,255,.9) !important;
+  font-weight:900 !important;
+}
+.big em{
+  color:#2a211c !important;
+  background:linear-gradient(transparent 58%, #f5c518 58%) !important;
+  padding:0 6px !important;
+  text-shadow:none !important;
+}
+.sub{color:#7a6a56 !important;text-shadow:none !important;font-weight:600 !important}
+
+/* 内容卡片：便利贴层层叠 */
+.item,.stat{
+  background:#fffaf0 !important;
+  border:2px solid #2a211c !important;
+  border-radius:3px !important;
+  box-shadow:6px 7px 0 rgba(42,33,28,.2) !important;
+  transform:none;
+}
+.item:nth-child(2n){background:#fff3cf !important;transform:rotate(.8deg) !important}
+.item:nth-child(3n){background:#ffe8ec !important;transform:rotate(-.7deg) !important}
+.item .n{
+  color:#e8453c !important;-webkit-text-fill-color:#e8453c !important;
+  background:#f5c518 !important;border:2px solid #2a211c !important;
+  -webkit-background-clip:border-box !important;background-clip:border-box !important;
+  text-shadow:none !important;font-weight:900 !important;border-radius:3px !important;
+}
+.item h3{color:#2a211c !important;font-weight:900 !important}
+.item p{color:#6d5c48 !important}
+.stat .num{color:#e8453c !important;-webkit-text-fill-color:#e8453c !important;background:none !important;text-shadow:2px 2px 0 rgba(245,197,24,.6) !important}
+.stat .lbl{color:#6d5c48 !important}
+
+/* 时间线：麻绳 + 图钉 */
+.tl::before{background:repeating-linear-gradient(180deg,#2a211c 0 8px,transparent 8px 14px) !important;width:3px !important}
+.tl-item::before{
+  background:#e8453c !important;border:2px solid #2a211c !important;border-radius:50% !important;transform:none !important;
+  box-shadow:2px 2px 0 rgba(42,33,28,.4) !important;
+}
+.tl-date{color:#2a211c !important;font-weight:900 !important}
+.tl-text{color:#4a3c2c !important}
+
+/* ===== 拼贴纸片字幕：每张 = 一块白纸片 + 深墨字 + 硬边投影 =====
+   亮色纸片组件(collageTorn/Paper)会铺到字幕区，白纸片本身就是衬底，
+   深墨字压在白纸上始终清晰，无需额外暗衬。
+   出场动画起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/半透明，不用 blur / opacity:0 / 大 scale。 */
+.caption{top:27%;bottom:13%;gap:10px 20px !important}
+.kin{
+  font-size:96px !important;
+  color:#2a211c !important;
+  background:#fffaf0 !important;
+  -webkit-text-fill-color:#2a211c !important;
+  -webkit-text-stroke:0 !important;
+  padding:2px 16px 6px !important;
+  border:3px solid #2a211c !important;
+  border-radius:4px !important;
+  box-shadow:6px 7px 0 rgba(42,33,28,.28), 0 12px 22px rgba(90,60,25,.2) !important;
+  text-shadow:none !important;
+  letter-spacing:2px !important;
+  font-weight:900 !important;
+}
+/* 错落纸片：撞色底 + 轻微旋转（拼贴错落感） */
+.kin:nth-child(2){background:#f5c518 !important;transform:rotate(-1.6deg)}
+.kin:nth-child(3){background:#fffaf0 !important;transform:rotate(1.2deg)}
+.kin:nth-child(4){background:#ffd2dd !important;transform:rotate(-1deg)}
+.kin:nth-child(5){background:#cfe8ff !important;transform:rotate(1.8deg)}
+.kin:nth-child(6){background:#d6f0dc !important;transform:rotate(-1.3deg)}
+.kin:nth-child(7){background:#fffaf0 !important;transform:rotate(1deg)}
+/* 小字块：淡色便签，不抢主字 */
+.kin.sm{font-size:56px !important;background:#f0e6cf !important;-webkit-text-fill-color:#6d5c48 !important;color:#6d5c48 !important;box-shadow:4px 5px 0 rgba(42,33,28,.16) !important;font-weight:700 !important}
+/* 长句块数多时整体收紧（防止多纸片挤成一团） */
+.caption:has(.kin:nth-child(6)) .kin{font-size:70px !important;padding:2px 10px 4px !important}
+.caption:has(.kin:nth-child(6)) .kin:nth-child(2),
+.caption:has(.kin:nth-child(6)) .kin:nth-child(4){font-size:52px !important}
+.caption:has(.kin:nth-child(6)) .kin.sm{font-size:42px !important}
+/* 出场：微放大回正（起始态可读，避免脏帧）；用 CSS 变量保存各自的旋转角 */
+.kin.on{animation:kinCollage .34s cubic-bezier(.2,.9,.3,1) both}
+@keyframes kinCollage{
+  0%{opacity:.65;transform:scale(1.09)}
+  100%{opacity:1;transform:scale(1)}
+}
+/* 高亮块：红色胶带贴片 + 白字 */
+.kin.hl{
+  background:#e8453c !important;
+  -webkit-text-fill-color:#fff8e8 !important;color:#fff8e8 !important;
+  border-color:#7a1f18 !important;
+  box-shadow:6px 7px 0 rgba(122,31,24,.4),0 12px 22px rgba(90,20,15,.25) !important;
+  padding:2px 14px 6px !important;
+}
+
+/* 关注按钮：图钉贴片 */
+.follow{
+  color:#2a211c !important;background:#f5c518 !important;
+  border:2px solid #2a211c !important;border-radius:3px !important;
+  box-shadow:4px 5px 0 rgba(42,33,28,.35) !important;
+  text-shadow:none !important;font-weight:800 !important;
+}
+
+/* 进度条：纸胶带尺 */
+.bar{background:rgba(42,33,28,.12) !important;border-radius:2px !important;height:9px !important;border:1px solid rgba(42,33,28,.3) !important}
+.bar i{background:#e8453c !important;border-radius:0 !important;box-shadow:none !important;border-right:2px solid #2a211c !important}
+.meta{color:#7a6a56 !important;font-weight:700 !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

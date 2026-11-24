@@ -1,0 +1,19 @@
+{
+  "id": "collage",
+  "name": "拼贴剪纸",
+  "en": "collage / paper-cut",
+  "desc": "手工剪贴质感：牛皮纸暖底、撞色不规则剪裁纸片、手撕毛边色带、半透明胶带、白模切边贴纸、图钉麻绳连线，层层叠叠贴上去。字幕是一块块白纸片（撞色错落+硬边投影），深墨字压在白纸上始终清晰。与综艺花字区分：综艺是粗描边立体字砸屏，这里是纸片手工拼贴的错落感。适合讲构成、拆解、步骤、汇总的内容。",
+  "bg": "#e7dcc3",
+  "ink": "#2a211c",
+  "accent": "#e8453c",
+  "font": "现代无衬线 + 深墨纸片字",
+  "themes": ["amber", "sunset", "rose", "vine"],
+  "visuals": [
+    {"name": "collagePaper", "desc": "撞色纸片错落堆叠：不规则剪裁+偏移硬阴影+旋转（构成/模块）", "opts": {"count": 7}},
+    {"name": "collageTape", "desc": "半透明胶带斜贴：撕裂锯齿两端+条纹纹理（连接/固定）", "opts": {"count": 4}},
+    {"name": "collageTorn", "desc": "手撕毛边色带：不规则锯齿边缘层层叠（氛围/分隔）", "opts": {"bands": 4, "oy": 0.62}},
+    {"name": "collageStickers", "desc": "白模切边贴纸：星星/爱心/圆形逐个弹出（亮点/强调）", "opts": {"count": 6}},
+    {"name": "collagePins", "desc": "图钉+麻绳虚线连接：标注关系结构（流程/关联）", "opts": {"count": 5}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"collage\"；每页 visual.name 用上表组件；主题建议 amber/sunset/rose/vine 暖色系。核心手法：cutPoly 生成顶点带随机扰动的剪裁多边形+偏移硬阴影模拟纸张厚度；字幕用白纸片本身当衬底（深墨字压白纸），亮色组件铺到字幕区也不影响可读；出场动画起始态保持可读以免 seek 抓帧固化脏帧；所有随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}

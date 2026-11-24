@@ -169,7 +169,8 @@ styles\
   huazi\             ← 综艺花字（已实现）
   render3d\          ← 3D渲染（已实现）
   morph\             ← 形变动画（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变皮肤、字体、卡片、字幕
+  collage\           ← 拼贴剪纸（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -207,9 +208,13 @@ styles\
   强调「一个形状平滑变成另一个」的过程感。组件：
   `morphShape`（多形状无缝形变）、`morphBlob`（有机流体呼吸）、`morphRing`（环形波浪）、
   `morphWave`（液态色带）、`morphGrid`（网格波纹扭曲）。样片：`output\形变动画样片.mp4`。
+- `collage` 拼贴剪纸：牛皮纸暖底 + 撞色不规则剪裁纸片 + 偏移硬阴影 + 手撕毛边 + 胶带图钉，
+  白纸片字幕（深墨字压白底，亮色组件铺上来也清晰），与综艺花字的立体砸屏字区分。组件：
+  `collagePaper`（撞色纸片堆叠）、`collageTape`（半透明胶带）、`collageTorn`（手撕毛边色带）、
+  `collageStickers`（白模切贴纸弹出）、`collagePins`（图钉+麻绳连线）。样片：`output\拼贴剪纸样片.mp4`。
 
 **待做风格清单**（按用户规划）：贴纸风科普、
-拼贴剪纸、弥散渐变玻璃拟态、几何构成包豪斯、
+弥散渐变玻璃拟态、几何构成包豪斯、
 复古synthwave、像素风、液态流动。
 
 ## 配音音色（edge-tts 微软在线神经语音）
