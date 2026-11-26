@@ -1,0 +1,128 @@
+{
+  "account": "我的频道",
+  "title": "AI攻破47年数学难题",
+  "tag": "热点 · AI与数学",
+  "style": "render3d",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "+8%",
+  "volume": "+0%",
+  "gap": 0.3,
+  "lead": 0.3,
+  "inner_gap": 0.11,
+  "music_volume": 0.16,
+  "music": "assets/music/vastness.mp3",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "热点 · AI与数学",
+      "title": "两家AI，<>四个小时</>，拆了一堵47年的墙",
+      "sub": "70页论文零人类署名 · 作者栏写着Claude",
+      "image": "math_cosmos.jpg",
+      "theme": "violet",
+      "visual": {"name": "renderSphere", "opts": {"count": 2}},
+      "narration": [
+        "11月24日凌晨，数学圈炸了。",
+        "Anthropic在GitHub上贴出一篇七十页论文，作者栏里没有一个人名，只写着：Claude。",
+        "不到四个小时，OpenAI也交出了自己的证明。",
+        "两家AI，同一天，攻下了同一道卡了四十七年的难题。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "01 / 到底证了什么",
+      "title": "证的，是<>代数版</>的P与NP",
+      "items": [
+        {"h": "问题", "p": "VP与VNP，Valiant在1979年提出"},
+        {"h": "别名", "p": "常被称为代数版的P不等于NP"}
+      ],
+      "image": "math_matrix.jpg",
+      "theme": "ice",
+      "visual": {"name": "renderCube", "opts": {"count": 3}},
+      "narration": [
+        "先说清楚，他们证的不是那个悬赏百万美元的P与NP。",
+        "而是它的代数版，叫VP与VNP。",
+        "这个问题是一九七九年，计算机科学家Valiant提出来的。",
+        "它考的是一道外行也看得懂的题：行列式，和积和式。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "02 / 一道有史以来最冤的题",
+      "title": "两个公式只差个<>正负号</>，命却完全不同",
+      "items": [
+        {"h": "行列式", "p": "每一项正负交替，有快速算法"},
+        {"h": "积和式", "p": "每项全取正号，四十年没找到捷径"}
+      ],
+      "image": "math_matrix.jpg",
+      "theme": "amber",
+      "visual": {"name": "renderTorus", "opts": {"count": 2}},
+      "narration": [
+        "把一个方阵的行列式写出来：每行每列各取一个元素相乘，再全部加起来，正负号交替。",
+        "积和式的算法一模一样，只改一件事：所有项都取正号。",
+        "就这么一个正负号的差别。",
+        "行列式眨眼就能算完，积和式四十多年来，谁也没找到快速算法。",
+        "Valiant猜：这个捷径，永远不存在。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "03 / 两家同时交卷",
+      "title": "70页对30页，代码却写了<>几十万行</>",
+      "items": [
+        {"h": "Anthropic", "p": "70页论文，7.3万行Lean，署名Claude"},
+        {"h": "OpenAI", "p": "30页论文，44万行Lean，晚3小时47分"}
+      ],
+      "image": "math_repo.jpg",
+      "theme": "steel",
+      "visual": {"name": "renderParticles", "opts": {"count": 60}},
+      "narration": [
+        "凌晨五点四十三分，Anthropic的论文合入GitHub。",
+        "七十页，后面跟着七万三千行Lean形式化代码，全程没有一个人类署名。",
+        "三小时四十七分钟后，OpenAI的论文也到了。",
+        "只有三十页，但Lean代码堆到了四十四万行。",
+        "两家走的是完全不同的路线，得出的结论却一样：不相等。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "04 / 别急着封神",
+      "title": "<>内门还关着</>，密码学也没塌",
+      "items": [
+        {"h": "不是P≠NP", "p": "布尔电路与算术电路本质不同"},
+        {"h": "没经人审", "p": "Lean只验逻辑，验不了题面写对没"}
+      ],
+      "image": "math_verify.jpg",
+      "theme": "vine",
+      "visual": {"name": "renderFloor", "opts": {}},
+      "narration": [
+        "现在网上到处在传：P与NP被AI解决了，比特币要完。",
+        "打住。",
+        "论文末尾专门写了：算术电路和布尔电路是两码事，证明里的关键两步搬到布尔世界就直接失效。",
+        "所以真正的P与NP那扇门，还关着，密码学也没受冲击。",
+        "而且Lean能保证每一步推理合逻辑，却保证不了：代码里写的定理，就是论文说的那个定理。",
+        "这两份证明，至今没有人类数学家完整核查过。"
+      ]
+    },
+    {
+      "type": "content",
+      "eyebrow": "05 / 真正变了什么",
+      "title": "数学里<>谁说了算</>，正在换人",
+      "items": [
+        {"h": "过去", "p": "数学家找证明、写证明、同行评审"},
+        {"h": "现在", "p": "AI找证明写证明，人退到岸边批卷"}
+      ],
+      "image": "math_brain.jpg",
+      "theme": "rose",
+      "visual": {"name": "renderSphere", "opts": {"count": 2}},
+      "narration": [
+        "那这件事真正改变了什么？",
+        "不是某一个定理，是数学里的权力结构。",
+        "过去找证明、写证明，话语权牢牢在人类手里。",
+        "现在最硬的两步，被AI拿走了。",
+        "人类退到岸边，负责批卷——核对Lean管不到的那最后一句。",
+        "外墙塌了，门口站着的是两台机器。",
+        "那个该不该给模型署名的问题，才是留给我们真正的难题。关注我，"
+      ]
+    }
+  ]
+}

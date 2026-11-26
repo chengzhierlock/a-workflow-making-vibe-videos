@@ -13,6 +13,10 @@ _qc_*/
 _stkcheck*/
 _pxcheck/
 
+# 图片生成原始稿与预览（压缩后的成品图放 assets/ 入库）
+_genimg*/
+generated-images/
+
 # ===== Python 缓存 =====
 __pycache__/
 *.py[cod]
