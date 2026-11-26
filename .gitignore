@@ -8,6 +8,11 @@ output/
 # 运行日志（抓帧/合成/流水线 stdout 日志）
 *.log
 
+# 质检抽帧临时目录（contact sheet 等）
+_qc_*/
+_stkcheck*/
+_pxcheck/
+
 # ===== Python 缓存 =====
 __pycache__/
 *.py[cod]

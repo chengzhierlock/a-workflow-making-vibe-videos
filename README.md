@@ -174,7 +174,9 @@ styles\
   bauhaus\           ← 包豪斯（已实现）
   synthwave\         ← 复古Synthwave（已实现）
   pixel\             ← 像素风（已实现）
-    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯/synthwave/像素皮肤、字体、卡片、字幕
+  sticker\           ← 贴纸风科普（已实现）
+  liquid\            ← 液态流动（已实现）
+    style.css        ← 覆盖默认 CSS：纸张/等轴/扁平/线条/赛博/综艺/3D/形变/拼贴/玻璃/包豪斯/synthwave/像素/贴纸/液态皮肤、字体、卡片、字幕
     visuals.js       ← 风格专属 Canvas 组件，追加注册到 VISUALS
     meta.json        ← 风格说明、可用动画、配色建议
 ```
@@ -232,8 +234,16 @@ styles\
   红白机/街机复古感，与 synthwave 渐变霓虹、赛博HUD 仪表界面区分。组件：
   `pixelGrid`（像素棋盘格底纹）、`pixelSprite`（点阵精灵弹出）、`pixelBars`（8-bit血条）、
   `pixelRain`（掉落方块）、`pixelScene`（像素平台关卡）。样片：`output\像素风样片.mp4`。
+- `sticker` 贴纸风科普：奶油手账纸底 + 白模切边贴纸 + 马卡龙配色 + 科普引线标注 + 塑料高光，
+  与拼贴剪纸的牛皮纸毛边、扁平矢量的撞色插画区分。组件：
+  `stickerBlob`（贴纸群弹出）、`stickerLabels`（引线标注）、`stickerOrbit`（太阳系/细胞模型）、
+  `stickerBars`（马卡龙柱图）、`stickerSteps`（编号步骤贴）。样片：`output\贴纸风科普样片.mp4`。
+- `liquid` 液态流动：液滴融合metaball + 墨滴入水晕开 + 黏稠拉丝倾倒 + 虹彩油膜 + 涟漪扩散，
+  强调真实液体物理质感，与 morph 的形状插值区分。组件：
+  `liquidMetaball`（液滴融合）、`liquidInk`（墨滴晕开）、`liquidPour`（黏稠倾倒）、
+  `liquidIridescent`（虹彩油膜）、`liquidRipple`（水滴涟漪）。样片：`output\液态流动样片.mp4`。
 
-**待做风格清单**（按用户规划）：贴纸风科普、液态流动。
+**待做风格清单**（按用户规划）：无（15种规划风格全部完成）。
 
 ## 配音音色（edge-tts 微软在线神经语音）
 

@@ -1,0 +1,19 @@
+{
+  "id": "liquid",
+  "name": "液态流动",
+  "en": "liquid flow / fluid motion",
+  "desc": "真实液体物理质感美学：液滴融合分裂（metaball）+ 墨滴入水晕开 + 黏稠拉丝倾倒 + 虹彩油膜 + 涟漪扩散 + 流动高光。强调「液体会融合、会滴落、会晕开」的流体物理感，与 morph 的形状插值（一个形状平滑变成另一个）、3D渲染的硬朗光照区分：这里是柔软、黏稠、会流动的液体本身。适合讲流动、融合、演变、质感、美妆化工类内容。",
+  "bg": "#080c1a",
+  "ink": "#eef4ff",
+  "accent": "#5eead4",
+  "font": "现代无衬线 + 虹彩流光字",
+  "themes": ["ice", "violet", "rose", "steel"],
+  "visuals": [
+    {"name": "liquidMetaball", "desc": "液滴融合球：多个彩色液滴靠近时融合、拉丝、分离（metaball融合）", "opts": {"count": 6}},
+    {"name": "liquidInk", "desc": "墨滴入水：彩色墨滴在水中扩散成云雾，缓慢晕开（扩散/晕染）", "opts": {"count": 5}},
+    {"name": "liquidPour", "desc": "黏稠倾倒：液体从上方流下、拉丝、底部堆积（流动/倾倒）", "opts": {"strands": 4}},
+    {"name": "liquidIridescent", "desc": "虹彩油膜：水面油膜的彩虹流动 + 肥皂泡光泽（虹彩/质感）", "opts": {}},
+    {"name": "liquidRipple", "desc": "水滴涟漪：液滴落下激起同心波纹层层扩散（涟漪/节奏）", "opts": {"count": 3}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"liquid\"；每页 visual.name 用上表组件；主题建议 ice/violet/rose/steel，深色底配虹彩流光最搭。核心手法：metaball 用多个径向渐变叠加 + 全局模糊后阈值化实现液滴融合；墨滴用多层半透明径向渐变小半径扩散；虹彩用多色相位偏移的正弦色带；字幕用深色衬底 + 虹彩渐变描边字保证亮色液体铺上来仍清晰；出场起始态保持可读以免 seek 抓帧固化脏帧；所有随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "sticker",
+  "name": "贴纸风科普",
+  "en": "die-cut sticker / kawaii explainer",
+  "desc": "可爱贴纸科普风：白色模切边贴纸 + 马卡龙柔和配色 + 科普引线标注 + 圆润卡通 + 塑料贴纸高光 + 手账纸底。强调「手账上贴的可爱科普贴纸」感，与拼贴剪纸的牛皮纸毛边杂乱、扁平矢量的撞色杂志插画区分：这里每张贴纸都有一圈粗白模切边、柔和投影和高光，配引线小标签讲知识。适合科普、知识拆解、儿童教育、轻快讲解类内容。",
+  "bg": "#fdf6ef",
+  "ink": "#2d2b4a",
+  "accent": "#ff9ebb",
+  "font": "圆润无衬线粗体（马卡龙贴纸字）",
+  "themes": ["rose", "ice", "amber", "vine"],
+  "visuals": [
+    {"name": "stickerBlob", "desc": "白模切边贴纸群：云/星/心/气泡圆润卡通逐个弹出 + 高光投影（主角/亮点）", "opts": {"count": 6}},
+    {"name": "stickerLabels", "desc": "科普引线标注：中心图形 + 引线指向圆点小标签（图解/标注）", "opts": {"count": 4}},
+    {"name": "stickerOrbit", "desc": "科普模型：中心圆 + 环绕小贴纸 + 虚线轨道（太阳系/细胞结构）", "opts": {"nodes": 5}},
+    {"name": "stickerBars", "desc": "马卡龙圆角柱图 + 白模切边 + 高光（数据科普）", "opts": {"values": [0.62,0.85,0.7,0.94,0.78]}},
+    {"name": "stickerSteps", "desc": "步骤贴纸：编号圆贴 + 曲线箭头连接（流程科普）", "opts": {"count": 4}}
+  ],
+  "howto": "content.json 顶层加 \"style\": \"sticker\"；每页 visual.name 用上表组件；主题建议 rose/ice/amber/vine。核心手法：每个贴纸图形先画一圈粗白模切边(白色描边/白色放大底层)+柔和投影+椭圆高光，配马卡龙色(粉#ff9ebb/薄荷#7fd8c4/天蓝#8ec9f5/奶油黄#ffd98e/淡紫#c4a6f0)；字幕用白底圆角贴纸块 + 彩色描边 + nth-child !important 大小交替；出场起始态保持可读以免 seek 抓帧固化脏帧；所有随机走确定性 rnd(i) 保证跨 worker 抓帧一致。"
+}

@@ -1,0 +1,190 @@
+/* ============================================================
+ * 风格皮肤：贴纸风科普 (die-cut sticker / kawaii explainer)
+ * 覆盖默认暗色科技皮肤，做成可爱贴纸科普美学。
+ * 关键词：白色模切边、马卡龙配色、科普引线、圆润卡通、塑料高光、手账纸底。
+ * 与拼贴剪纸(牛皮纸毛边杂乱)/扁平矢量(撞色杂志插画)区分：
+ *   这里每张贴纸都有粗白模切边 + 柔和投影 + 高光，配引线小标签讲知识。
+ * 加载方式：追加到默认 CSS 之后，靠同名类选择器 + !important 覆盖。
+ * ============================================================ */
+
+html,body{
+  font-family:"Trebuchet MS","Arial Rounded MT Bold","PingFang SC","Microsoft YaHei",system-ui,sans-serif !important;
+}
+.stage{background:#efe7dd !important}
+
+/* 屏幕：奶油手账纸底 + 淡圆点纹理（浅底，深字保证清晰） */
+.screen{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(255,158,187,.16) 0,transparent 22%),
+    radial-gradient(circle at 88% 78%,rgba(127,216,196,.18) 0,transparent 24%),
+    linear-gradient(165deg,#fffaf4 0%,#fdf3ef 55%,#f6eee6 100%) !important;
+  color:#2d2b4a !important;
+  border:0 !important;
+  box-shadow:0 18px 60px rgba(80,60,90,.18) !important;
+}
+.screen::before{
+  /* 手账淡圆点网格 */
+  background-image:radial-gradient(circle,#d9cfd6 1.4px,transparent 1.4px) !important;
+  background-size:38px 38px !important;
+  -webkit-mask-image:none !important;mask-image:none !important;
+  z-index:1 !important;
+}
+.glow{display:none !important}
+.dot{border-radius:50% !important;opacity:.85 !important}
+
+/* 品牌栏：马卡龙圆徽标 */
+.logo{
+  border:3px solid #fff !important;border-radius:50% !important;
+  background:#ff9ebb !important;
+  box-shadow:0 4px 0 rgba(180,110,140,.35),inset 0 -4px 8px rgba(255,255,255,.5) !important;
+}
+.logo::after{
+  background:#fff !important;border:none !important;border-radius:50% !important;
+  inset:30% !important;transform:none !important;
+  box-shadow:inset 0 -2px 4px rgba(0,0,0,.08) !important;
+}
+.hd .name{
+  color:#2d2b4a !important;font-weight:900 !important;letter-spacing:1px !important;
+  text-shadow:0 2px 0 #fff !important;
+}
+.hd .tag{
+  border-radius:20px !important;border:2px solid #fff !important;
+  background:#7fd8c4 !important;color:#1d5a4e !important;font-weight:800 !important;
+  box-shadow:0 3px 0 rgba(90,150,135,.3) !important;text-shadow:none !important;
+}
+
+/* 页眉：马卡龙圆角标签 */
+.eyebrow{
+  color:#c2537e !important;
+  background:#fff !important;
+  border:3px solid #ffd0e0 !important;
+  border-radius:30px !important;
+  padding:6px 20px !important;
+  box-shadow:0 4px 0 #ffe3ee !important;
+  text-shadow:none !important;
+  letter-spacing:3px;font-weight:900 !important;
+}
+
+/* 大标题：深墨字 + 白描边 + 马卡龙高亮 em */
+.big{
+  color:#2d2b4a !important;letter-spacing:1px !important;font-weight:900 !important;
+  text-shadow:
+    2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,
+    0 6px 14px rgba(90,60,90,.15) !important;
+}
+.big em{
+  color:#e85286 !important;-webkit-text-fill-color:#e85286 !important;
+  background:none !important;
+  text-shadow:
+    2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,
+    0 5px 0 #ffd0e0 !important;
+}
+.sub{color:#6a6278 !important;text-shadow:0 1px 0 #fff !important;font-weight:700 !important}
+
+/* 内容卡片：白模切边圆角卡 + 柔和投影 + 左侧马卡龙色条 */
+.item,.stat{
+  background:#fff !important;
+  border:3px solid #fff !important;
+  border-left:8px solid #ff9ebb !important;
+  border-radius:20px !important;
+  box-shadow:0 6px 0 rgba(150,120,140,.16),0 10px 24px rgba(120,90,120,.10) !important;
+  backdrop-filter:none !important;
+}
+.item:nth-child(3n+2){border-left-color:#7fd8c4 !important}
+.item:nth-child(3n+3){border-left-color:#8ec9f5 !important}
+.item .n{
+  color:#e85286 !important;-webkit-text-fill-color:#e85286 !important;
+  background:#ffe3ee !important;border-radius:50% !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+.item:nth-child(3n+2) .n{color:#2f9b84 !important;-webkit-text-fill-color:#2f9b84 !important;background:#daf5ee !important}
+.item:nth-child(3n+3) .n{color:#3f8fc4 !important;-webkit-text-fill-color:#3f8fc4 !important;background:#e0f0fc !important}
+.item h3{color:#2d2b4a !important;font-weight:900 !important;text-shadow:none !important}
+.item p{color:#6a6278 !important;font-weight:600 !important}
+.stat .num{
+  color:#e85286 !important;-webkit-text-fill-color:#e85286 !important;background:none !important;
+  text-shadow:0 3px 0 #ffe3ee !important;
+}
+.stat .lbl{color:#6a6278 !important;font-weight:700 !important}
+
+/* 时间线：马卡龙轴 + 白边圆点 */
+.tl::before{background:#ffc9dc !important;width:5px !important;border-radius:4px !important}
+.tl-item::before{
+  background:#ff9ebb !important;border:3px solid #fff !important;border-radius:50% !important;
+  transform:none !important;box-shadow:0 3px 0 #e0aebc !important;
+}
+.tl-date{color:#c2537e !important;font-weight:900 !important;text-shadow:0 1px 0 #fff !important}
+.tl-text{color:#5a5268 !important}
+
+/* ===== 贴纸风字幕：中部白模切边圆角贴纸块，大小不一，弹出填充画面 =====
+   白色圆角底 + 马卡龙彩色描边 + 深墨字，浅底深字始终清晰。
+   字号由内联 style 硬编码，必须用 !important + nth-child 覆盖成大小交替。
+   出场起始态必须可读：seek 抓帧会固化动画中间态，
+   故起始仅轻微放大/近全不透明，不用 blur / opacity:0 / 大 scale。 */
+.caption{top:25%;bottom:14%;gap:9px 16px !important}
+.kin{
+  color:#2d2b4a !important;
+  -webkit-text-fill-color:#2d2b4a !important;
+  background:#fff !important;
+  padding:2px 18px 8px !important;
+  border:4px solid #fff !important;
+  border-radius:22px !important;
+  line-height:1.14 !important;
+  letter-spacing:1px !important;
+  font-weight:900 !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+  box-shadow:0 6px 0 rgba(150,120,140,.2),0 10px 22px rgba(120,90,120,.12) !important;
+}
+/* 大小不一：大—小—中—小—大—小—中 交替，撑满画面 */
+.caption .kin:nth-child(1){font-size:98px !important;border-color:#ffd0e0 !important}
+.caption .kin:nth-child(2){font-size:56px !important;border-color:#b8ecdf !important}
+.caption .kin:nth-child(3){font-size:80px !important;border-color:#cfe7fa !important}
+.caption .kin:nth-child(4){font-size:54px !important;border-color:#ffe6b8 !important}
+.caption .kin:nth-child(5){font-size:94px !important;border-color:#e0d0f6 !important}
+.caption .kin:nth-child(6){font-size:52px !important;border-color:#ffd0e0 !important}
+.caption .kin:nth-child(7){font-size:76px !important;border-color:#b8ecdf !important}
+/* 高亮块：粉底白字 + 白模切边（最醒目，像主贴纸） */
+.kin.hl{
+  background:#ff9ebb !important;
+  -webkit-text-fill-color:#fff !important;color:#fff !important;
+  border-color:#fff !important;
+  border-radius:24px !important;
+  text-shadow:0 2px 0 rgba(200,80,120,.35) !important;
+  box-shadow:0 6px 0 #e08aa6,0 12px 24px rgba(160,90,120,.22) !important;
+  padding:2px 20px 8px !important;
+}
+/* 小字块：薄荷绿描边 + 深墨字，与主字拉开层次 */
+.kin.sm{
+  -webkit-text-fill-color:#2f9b84 !important;color:#2f9b84 !important;
+  border-color:#b8ecdf !important;
+  background:#fff !important;
+}
+/* 长句块数多时整体收紧 */
+.caption:has(.kin:nth-child(6)) .kin{letter-spacing:0 !important}
+.caption:has(.kin:nth-child(7)) .kin:nth-child(1),
+.caption:has(.kin:nth-child(7)) .kin:nth-child(5){font-size:80px !important}
+/* 出场：轻微弹跳回正（起始态可读，避免脏帧） */
+.kin.on{animation:kinSticker .42s cubic-bezier(.2,1.3,.35,1) both}
+@keyframes kinSticker{
+  0%{opacity:.9;transform:scale(1.05) rotate(-2deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+
+/* 关注按钮：粉色贴纸按钮 + 白边 */
+.follow{
+  color:#fff !important;
+  background:#ff9ebb !important;
+  border:3px solid #fff !important;
+  border-radius:30px !important;
+  box-shadow:0 5px 0 #e08aa6 !important;
+  text-shadow:none !important;font-weight:900 !important;
+}
+
+/* 进度条：马卡龙方块条 */
+.bar{background:#f0e2e8 !important;border-radius:6px !important;height:7px !important}
+.bar i{background:linear-gradient(90deg,#ff9ebb,#c4a6f0) !important;border-radius:6px !important;box-shadow:none !important}
+.meta{color:#8a8092 !important;font-weight:700 !important;text-shadow:none !important}
+
+/* 视觉动画画布：正常在文字下层 */
+.vfx{opacity:1}

@@ -7,7 +7,8 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const LOG = path.join(__dirname, '_capture_progress.log');
+// 进度日志：默认固定文件；可用 CAPTURE_LOG 覆盖，避免并发/残留句柄导致 EPERM 锁冲突
+const LOG = process.env.CAPTURE_LOG || path.join(__dirname, '_capture_progress.log');
 function plog(msg) {
   const line = '[' + new Date().toISOString() + '] ' + msg + '\n';
   try { fs.appendFileSync(LOG, line); } catch (e) {}
